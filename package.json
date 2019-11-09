@@ -1,0 +1,26 @@
+{
+	"name": "lohas-farm-backend",
+	"version": "1.0.0",
+	"description": "lohas farm crud backend api",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node src/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/hytonylee/lohas-farm-backend.git"
+	},
+	"keywords": [
+		"lohas",
+		"blueberry",
+		"crud",
+		"operation"
+	],
+	"author": "Tony Lee <hy.tony.lee@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/hytonylee/lohas-farm-backend/issues"
+	},
+	"homepage": "https://github.com/hytonylee/lohas-farm-backend#readme"
+}
