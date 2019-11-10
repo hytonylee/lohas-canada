@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node src/index.js"
+		"start": "node src/index.js",
+		"start-watch": "nodemon src/index.js"
 	},
 	"repository": {
 		"type": "git",
@@ -22,5 +23,11 @@
 	"bugs": {
 		"url": "https://github.com/hytonylee/lohas-farm-backend/issues"
 	},
-	"homepage": "https://github.com/hytonylee/lohas-farm-backend#readme"
+	"homepage": "https://github.com/hytonylee/lohas-farm-backend#readme",
+	"dependencies": {
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"nodemon": "^1.19.4"
+	}
 }
