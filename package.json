@@ -25,7 +25,8 @@
 	},
 	"homepage": "https://github.com/hytonylee/lohas-farm-backend#readme",
 	"dependencies": {
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"mongoose": "^5.7.10"
 	},
 	"devDependencies": {
 		"nodemon": "^1.19.4"

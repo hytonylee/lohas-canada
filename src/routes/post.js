@@ -16,7 +16,7 @@ router.get('/post/:title', (req, res) => {
 	res.send(`You have a request a post ${req.params.title}`);
 });
 
-router.get('/post/error', (req, res) => {
+router.get('/error', (req, res) => {
 	throw new Error('This is forced error!!');
 });
 
