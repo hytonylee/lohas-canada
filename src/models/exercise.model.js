@@ -24,5 +24,4 @@ const exerciseSchema = new Schema(
 );
 
 const Exercise = mongoose.model('Exercise', exerciseSchema);
-
-export default Exercise;
+module.exports = Exercise;
