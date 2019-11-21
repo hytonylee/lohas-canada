@@ -1,12 +1,12 @@
+// Librarise
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import mongoose from 'mongoose';
 
-// const express = require('express');
-// const cors = require('cors');
-// const mongoose = require('mongoose');
-// require('dotenv').config();
+// Routes
+import exercisesRouter from './routes/exercises';
+import usersRouter from './routes/users';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -20,14 +20,15 @@ mongoose.connect(uri, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
-	// reconnectTries: 30,
-	// reconnectInterval: 500 // in ms
 });
 
 const connection = mongoose.connection;
 connection.once('open', () => {
-	console.log('MongoDB database connection established!');
+	console.log('MongoDB database connection established!!');
 });
+
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);
