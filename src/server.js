@@ -6,7 +6,6 @@ import mongoose from 'mongoose';
 
 // Routes
 import usersRouter from './routes/users';
-import authRouter from './routes/auth';
 import postsRouter from './routes/posts';
 
 const app = express();
@@ -32,7 +31,6 @@ connection.once('open', () => {
 // Router to Middlewares
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
-app.use('/register', authRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);
