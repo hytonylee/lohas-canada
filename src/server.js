@@ -5,8 +5,9 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 
 // Routes
-import exercisesRouter from './routes/exercises';
 import usersRouter from './routes/users';
+import authRouter from './routes/auth';
+import postsRouter from './routes/posts';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -15,6 +16,7 @@ const port = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
+// connect to DB
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
 	useNewUrlParser: true,
@@ -27,8 +29,10 @@ connection.once('open', () => {
 	console.log('MongoDB database connection established!!');
 });
 
-app.use('/exercises', exercisesRouter);
+// Router to Middlewares
 app.use('/users', usersRouter);
+app.use('/posts', postsRouter);
+app.use('/register', authRouter);
 
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);

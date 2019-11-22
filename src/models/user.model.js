@@ -1,4 +1,4 @@
-import mongoose, { modelNames } from 'mongoose';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -9,7 +9,22 @@ const userSchema = new Schema(
 			required: true,
 			unique: true,
 			trim: true, // trim white space at the end
-			minlength: 3
+			minlength: 3,
+			maxlength: 255
+		},
+		email: {
+			type: String,
+			required: true,
+			unique: true,
+			trim: true,
+			minlength: 5,
+			maxlength: 255
+		},
+		password: {
+			type: String,
+			required: true,
+			minlength: 6,
+			maxlength: 1024
 		}
 	},
 	{
