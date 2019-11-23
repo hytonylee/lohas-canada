@@ -19,9 +19,10 @@ const validateUser = data => {
 
 const validateLogin = data => {
 	const schema = Joi.object({
-		username: Joi.string()
+		email: Joi.string()
 			.min(6)
-			.required(),
+			.required()
+			.email(),
 		password: Joi.string()
 			.min(6)
 			.required()

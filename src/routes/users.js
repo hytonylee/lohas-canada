@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 const router = express.Router();
 
 // Create a user
-router.post('/add', async (req, res) => {
+router.post('/register', async (req, res) => {
 	// Validate the data before create a user
 	const { error } = validateUser(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
@@ -37,6 +37,27 @@ router.post('/add', async (req, res) => {
 	}
 });
 
+// Login
+router.post('/login', async (req, res) => {
+	// Check if the date is validate
+	const { error } = validateLogin(req.body);
+	if (error) return res.status(400).send(error.details[0].message);
+
+	// Check if the email exists
+	const loginUser = await User.findOne({
+		email: req.body.email
+	});
+	if (!loginUser)
+		return res.status(400).send('Email or Password is incorrect!!');
+
+	// Check if the password is correct
+	const validPass = await bcrypt.compare(req.body.password, loginUser.password);
+	if (!validPass)
+		return res.status(400).send('Email or Password is incorrect!!');
+
+	res.send('Logged in!!');
+});
+
 // Find a User
 router.route('/:id').get((req, res) => {
 	User.findById(req.params.id)
@@ -47,7 +68,13 @@ router.route('/:id').get((req, res) => {
 // Get All User
 router.route('/').get((req, res) => {
 	User.find()
-		.then(users => res.send(users))
+		.then(users =>
+			res.send(
+				users.map(user => {
+					return user.username;
+				})
+			)
+		)
 		.catch(err => res.status(400).json('Error: ' + err));
 });
 
