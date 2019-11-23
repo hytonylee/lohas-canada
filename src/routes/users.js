@@ -10,6 +10,10 @@ router.route('/add').post((req, res) => {
 	const { error } = validateUser(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
+	// Check if the email exists
+	const emailExist = User.find({ email: req.body.email });
+	if (emailExist) return res.status(400).send('Email is already existed!');
+
 	const username = req.body.username;
 	const email = req.body.email;
 	const password = req.body.password;
