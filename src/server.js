@@ -5,6 +5,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 
 // Routes
+import authRouter from './routes/auth';
 import usersRouter from './routes/users';
 import postsRouter from './routes/posts';
 
@@ -29,6 +30,7 @@ connection.once('open', () => {
 });
 
 // Router to Middlewares
+app.use('/register', authRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 
