@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/user.model';
 import { validateUser, validateLogin } from '../validation/validate';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
@@ -55,7 +56,9 @@ router.post('/login', async (req, res) => {
 	if (!validPass)
 		return res.status(400).send('Email or Password is incorrect!!');
 
-	res.send('Logged in!!');
+	// Create and assign a token
+	const token = jwt.sign({ _id: loginUser._id }, process.env.TOKEN_SECRET);
+	res.header('auth-token', token).send(token);
 });
 
 // Find a User

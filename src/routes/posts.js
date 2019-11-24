@@ -1,17 +1,16 @@
 import express from 'express';
 import Post from '../models/post.model';
-
-// const router = require('express').Router();
-// let Post = require('../models/post.model');
-// const router = require('express').Router();
-// let Post = require('../models/post.model');
+import verify from './verifyToken';
 
 const router = express.Router();
 
-router.route('/').get((req, res) => {
-	Post.find()
-		.then(posts => res.json(posts))
-		.catch(err => res.status(400).json('Error: ' + err));
+router.get('/', verify, async (req, res) => {
+	try {
+		const posts = await Post.find();
+		res.send(posts);
+	} catch (err) {
+		res.status(400).send('Error: ' + err);
+	}
 });
 
 router.route('/add').post((req, res) => {
