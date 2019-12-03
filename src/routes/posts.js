@@ -4,6 +4,7 @@ import verify from './verifyToken';
 
 const router = express.Router();
 
+// Get All Posts
 router.get('/', verify, async (req, res) => {
 	try {
 		const posts = await Post.find();
@@ -13,31 +14,45 @@ router.get('/', verify, async (req, res) => {
 	}
 });
 
-router.route('/add').post((req, res) => {
-	const title = req.body.title;
-	const content = req.body.content;
-	const type = req.body.type;
-	const image = req.body.image;
-	const date = Date.parse(req.body.date);
-	const newPost = new Post({ title, type, image, content, date });
-	newPost
-		.save()
-		.then(() => res.json(`${newPost.title} has been added.`))
-		.catch(err => res.status(400).json('Error: ' + err));
+// Get Single Post
+router.get('/:id', verify, async (req, res) => {
+	try {
+		const post = await Post.findById(req.params.id);
+		res.send(post);
+	} catch (err) {
+		res.status(400).send('Error: ' + err);
+	}
 });
 
-router.route('/:id').get((req, res) => {
-	Post.findById(req.params.id)
-		.then(post => res.json(post))
-		.catch(err => res.status(400).json('Error: ' + err));
+// Add Posts
+router.post('/add', verify, async (req, res) => {
+	const newPost = new Post({
+		title: req.body.title,
+		content: req.body.content,
+		type: req.body.type,
+		image: req.body.image,
+		date: Date.parse(req.body.date)
+	});
+
+	try {
+		const savePost = await newPost.save();
+		res.send(savePost);
+	} catch (err) {
+		res.status(400).send('Error: ' + err);
+	}
 });
 
-router.route('/:id').delete((req, res) => {
-	Post.findById(req.params.id)
-		.then(post => res.json(`${post.title} is deleted`))
-		.catch(err => res.status(400).json('Error: ' + err));
+// Delete a Post
+router.delete('/:id', verify, async (req, res) => {
+	try {
+		const post = await Post.findById(req.params.id);
+		res.send(`${post.title} is deleted`);
+	} catch (err) {
+		res.status(400).json('Error: ' + err);
+	}
 });
 
+// Update a Post
 router.route('/update/:id').post((req, res) => {
 	Post.findById(req.params.id)
 		.then(post => {
@@ -54,7 +69,5 @@ router.route('/update/:id').post((req, res) => {
 		})
 		.catch(err => res.status(400).json('Error: ' + err));
 });
-
-// module.exports = router;
 
 export default router;
