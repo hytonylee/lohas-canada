@@ -1,6 +1,10 @@
 // Loading Libraries
 const express = require('express');
+const connectDB = require('./config/db');
 const app = express();
+
+// connect to Database
+connectDB();
 
 // Init Middleware
 app.get('/', (req, res) =>
