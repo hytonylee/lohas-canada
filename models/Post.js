@@ -11,14 +11,21 @@ const PostSchema = mongoose.Schema({
 	},
 	section: {
 		type: String,
-		enum: ['front', 'blog'],
+		enum: ['front page', 'blog'],
 		default: 'blog',
 		required: true
 	},
-	timestamps: {
-		createdAt: 'createdAt',
-		updatedAt: 'updatedAt'
+	status: {
+		type: String,
+		enum: ['published', 'draft'],
+		default: 'draft',
+		required: true
+	},
+	date: {
+		type: Date,
+		default: Date.now
 	}
+	// timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
 
 module.exports = mongoose.model('post', PostSchema);
