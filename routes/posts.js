@@ -5,17 +5,30 @@ const { check, validationResult } = require('express-validator');
 const Post = require('../models/Post');
 
 // @route   Get api/posts
-// @desc    Get all posts
+// @desc    Get all published posts
 // @access  Public
 router.get('/', async (req, res) => {
 	try {
-		const posts = await Post.find({ user: req.user.id }).sort({
+		const posts = await Post.find({ status: 'published' }).sort({
 			date: -1
 		});
 		res.json(posts);
 	} catch (err) {
-		console.err(err.message);
+		console.error(err.message);
 		res.status(500).send('Server Error: Unable loading post data.');
+	}
+});
+
+// @route		Get api/posts (published and draft)
+// @desc		Get all published and draft posts
+// @access  Private
+router.get('/dashboard', auth, async (req, res) => {
+	try {
+		const posts = await Post.find({ user: req.user.id }).sort({ date: -1 });
+		res.json(posts);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error: Unable loading post data');
 	}
 });
 
