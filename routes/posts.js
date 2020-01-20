@@ -51,13 +51,14 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { title, section, status } = req.body;
+		const { title, section, status, content } = req.body;
 
 		try {
 			const newPost = new Post({
 				title,
 				section,
 				status,
+				content,
 				user: req.user.id
 			});
 
@@ -94,16 +95,28 @@ router.put(
 
 		const { title, section, content, status } = req.body;
 
-		try {
-			const newPost = new Post({
-				title,
-				section,
-				content,
-				status,
-				user: req.user.id
-			});
+		const postFields = {};
+		if (title) postFields.title = title;
+		if (section) postFields.section = section;
+		if (content) postFields.content = content;
+		if (status) postFields.status = status;
 
-			const post = await newPost.save();
+		try {
+			// Make sure the user's post exists
+			let post = await Post.findById(req.params.id);
+			if (!post) return res.json(404).json({ msg: 'Post not found!' });
+
+			// Make sure the user own post
+			if (post.user.toString() !== req.user.id) {
+				return res.status(401).json({ msg: 'Not authorized!' });
+			}
+
+			// Update the user's post
+			post = await Post.findByIdAndUpdate(
+				req.params.id,
+				{ $set: postFields },
+				{ new: true }
+			);
 			res.json(post);
 		} catch (err) {
 			console.error(err.message);
@@ -119,6 +132,11 @@ router.delete('/dashboard/:id', auth, async (req, res) => {
 	try {
 		let post = await Post.findById(req.params.id);
 		if (!post) return res.status(404).json({ msg: 'Post not found!' });
+
+		// Make sure user owns the post
+		if (post.user.toString() !== req.user.id) {
+			return res.status(401).json({ msg: 'Not authorized!!' });
+		}
 
 		await Post.findByIdAndRemove(req.params.id);
 		res.json({ msg: 'Post has been removed!' });

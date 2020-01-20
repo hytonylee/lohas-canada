@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
+const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../models/User');
@@ -72,5 +73,10 @@ router.post(
 		}
 	}
 );
+
+// @route     POST api/dashboard/:id
+// @desc      Change Account Info
+// @access    Private
+router.put('/dashboard/:id', auth, async (req, res) => {});
 
 module.exports = router;
