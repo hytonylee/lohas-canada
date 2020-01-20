@@ -15,6 +15,10 @@ const PostSchema = mongoose.Schema({
 		default: 'blog',
 		required: true
 	},
+	content: {
+		type: String,
+		required: true
+	},
 	status: {
 		type: String,
 		// enum: ['published', 'draft'],
