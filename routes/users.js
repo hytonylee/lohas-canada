@@ -75,8 +75,31 @@ router.post(
 );
 
 // @route     POST api/dashboard/:id
-// @desc      Change Account Info
+// @desc      Update Account Info
 // @access    Private
-router.put('/dashboard/:id', auth, async (req, res) => {});
+router.put('/dashboard/:id', auth, async (req, res) => {
+	const { name, email, password } = req.body;
+	const salt = await bcrypt.genSalt(10);
+	// Build user object
+	const userFields = {};
+	if (name) userFields.name = name;
+	if (email) userFields.email = email;
+	if (password) userFields.password = await bcrypt.hash(password, salt);
+
+	try {
+		let user = await User.findById(req.params.id);
+		if (!user) return res.status(404).json({ msg: 'User Not Found!' });
+
+		user = await User.findByIdAndUpdate(
+			req.params.id,
+			{ $set: userFields },
+			{ new: true }
+		);
+		res.json(user);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error!');
+	}
+});
 
 module.exports = router;
