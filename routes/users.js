@@ -38,6 +38,16 @@ router.post(
 				return res.status(400).json({ msg: 'User already exists!' });
 			}
 
+			let count;
+			await User.find({}).exec((err, results) => {
+				count = results.length;
+				return count;
+			});
+
+			if (count > 1) {
+				return res.status(400).json({ msg: 'Exceed user registration limit!' });
+			}
+
 			user = new User({
 				name,
 				email,
