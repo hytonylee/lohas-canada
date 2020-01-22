@@ -50,7 +50,7 @@ describe('User Model Test', () => {
 	});
 
 	// Test Validation is working!!!
-	// It should us told us the errors in on gender field.
+	// It should us told us the errors in on password field.
 	it('create user without required field should failed', async () => {
 		const userWithoutRequiredField = new User({ name: 'Jack Ryan' });
 		let err;
