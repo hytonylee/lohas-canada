@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const userData = {
 	name: 'Jack Ryan',
-	email: 'j_ryan@gmail.com',
+	email: 'jryan@gmail.com',
 	password: '556789'
 };
 
@@ -12,7 +12,7 @@ describe('User Model Test', () => {
 	// Connect to MongoDB Memeory Server
 	beforeAll(async () => {
 		await mongoose.connect(
-			global.MONGO_URI,
+			global.__MONGO_URI__,
 			{
 				useNewUrlParser: true,
 				useCreateIndex: true
@@ -27,7 +27,7 @@ describe('User Model Test', () => {
 	});
 
 	it('Create and Save User Successfully', async () => {
-		const validUser = new UserModel(userData);
+		const validUser = new User(userData);
 		const savedUser = await validUser.save();
 		// Object Id should be defined when successfully saved to MongoDB.
 		expect(savedUser._id).toBeDefined();
@@ -39,10 +39,10 @@ describe('User Model Test', () => {
 	// Test Schema is working!!!
 	// You shouldn't be able to add in any field that isn't defined in the schema
 	it('insert user successfully, but the field does not defined in schema should be undefined', async () => {
-		const userWithInvalidField = new UserModel({
-			name: 'TekLoon',
-			gender: 'Male',
-			nickname: 'Handsome TekLoon'
+		const userWithInvalidField = new User({
+			name: 'Jack Ryan',
+			email: 'jryan@gmail.om',
+			password: '556789'
 		});
 		const savedUserWithInvalidField = await userWithInvalidField.save();
 		expect(savedUserWithInvalidField._id).toBeDefined();
@@ -52,7 +52,7 @@ describe('User Model Test', () => {
 	// Test Validation is working!!!
 	// It should us told us the errors in on gender field.
 	it('create user without required field should failed', async () => {
-		const userWithoutRequiredField = new UserModel({ name: 'TekLoon' });
+		const userWithoutRequiredField = new User({ name: 'Jack Ryan' });
 		let err;
 		try {
 			const savedUserWithoutRequiredField = await userWithoutRequiredField.save();
@@ -61,6 +61,6 @@ describe('User Model Test', () => {
 			err = error;
 		}
 		expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
-		expect(err.errors.gender).toBeDefined();
+		expect(err.errors.password).toBeDefined();
 	});
 });
