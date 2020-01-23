@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+const TagSchema = mongoose.Schema({
+	name: String
+});
+
 const PostSchema = mongoose.Schema({
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
@@ -28,7 +32,8 @@ const PostSchema = mongoose.Schema({
 	date: {
 		type: Date,
 		default: Date.now
-	}
+	},
+	tags: [TagSchema]
 });
 
 module.exports = mongoose.model('post', PostSchema);
