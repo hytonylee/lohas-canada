@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-	--primary-color: #dc3545;
+	--primary-color: #5667b8;
 	--dark-color: #333333;
 	--light-color: #f4f4f4;
 	--danger-color: #dc3545;
@@ -434,18 +434,19 @@ table th {
 
 /* Footer */
 .footer {
-	display: flex;
+	/* display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
 	padding: 0.7rem 2rem 0.5rem;
-	z-index: 1;
-	opacity: 0.8;
+	z-index: 5;
+	opacity: 1;
+	*/
 
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 	height: 50px;
+	position: fixed;
+	bottom: 0;
 
 	background: rgb(43, 43, 43);
 	background: linear-gradient(
@@ -498,5 +499,9 @@ table th {
 	.navbar ul {
 		text-align: center;
 		justify-content: center;
+	}
+
+	.footer {
+		position: static;
 	}
 }
