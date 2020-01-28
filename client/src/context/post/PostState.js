@@ -58,7 +58,7 @@ const PostState = props => {
 	// Clear Filter
 
 	return (
-		<PostContext
+		<PostContext.Provider
 			value={{
 				posts: state.posts,
 				current: state.current,
@@ -68,7 +68,7 @@ const PostState = props => {
 			}}
 		>
 			{props.children}
-		</PostContext>
+		</PostContext.Provider>
 	);
 };
 
