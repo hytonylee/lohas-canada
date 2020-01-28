@@ -22,7 +22,7 @@ const App = () => {
 	return (
 		<PostState>
 			<Router>
-				<Fragment className='App'>
+				<Fragment>
 					<NavBar />
 					<Switch>
 						<Route exact path='/' component={Home} />

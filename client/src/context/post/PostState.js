@@ -28,7 +28,7 @@ const PostState = props => {
 	// Get Posts (Public)
 	const getPosts = async () => {
 		try {
-			const res = await axios.get('/api/posts');
+			const res = await axios.get('/api/posts/');
 			dispatch({
 				type: GET_POSTS,
 				payload: res.data
