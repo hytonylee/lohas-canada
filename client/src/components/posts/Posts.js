@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import PostItem from './PostItem';
-// import Spinner from '../layout/Spinner';
+import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
 const Posts = () => {
@@ -16,7 +16,15 @@ const Posts = () => {
 		return <h4>Loading Error: unable to load any posts</h4>;
 	}
 
-	return <Fragment>Hello World!!</Fragment>;
+	return (
+		<Fragment>
+			{posts !== null && !loading ? (
+				posts.map(post => <PostItem post={post} />)
+			) : (
+				<Spinner />
+			)}
+		</Fragment>
+	);
 };
 
 export default Posts;
