@@ -7,7 +7,7 @@ const Home = () => {
 		<Fragment>
 			<Display />
 			<div className='container'>
-				<Post />
+				<Post page='front page' />
 			</div>
 		</Fragment>
 	);

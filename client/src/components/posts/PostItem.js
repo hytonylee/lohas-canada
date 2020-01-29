@@ -5,7 +5,7 @@ const PostItem = ({ post }) => {
 	const { _id, title, content } = post;
 
 	return (
-		<div className='card' key={_id}>
+		<div className='card' keys={_id}>
 			<h3>{title}</h3>
 			<p>{content}</p>
 		</div>

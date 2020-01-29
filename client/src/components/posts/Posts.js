@@ -3,7 +3,7 @@ import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
-const Posts = () => {
+const Posts = ({ page }) => {
 	const postContext = useContext(PostContext);
 	const { posts, loading, getPosts } = postContext;
 
@@ -18,9 +18,10 @@ const Posts = () => {
 
 	return (
 		<Fragment>
+			{console.log}
 			{posts !== null && !loading ? (
 				posts.map(post =>
-					post.section === 'front page' ? <PostItem post={post} /> : <Spinner />
+					post.section === `${page}` ? <PostItem post={post} /> : <Spinner />
 				)
 			) : (
 				<Spinner />
