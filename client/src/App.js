@@ -17,25 +17,43 @@ import PostState from './context/post/PostState';
 
 // Styles
 import './App.css';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 const App = () => {
 	return (
-		<PostState>
-			<Router>
-				<Fragment>
-					<NavBar />
-					<Switch>
-						<Route exact path='/' component={Home} />
-						<Route exact path='/product' component={Product} />
-						<Route exact path='/blog' component={Blog} />
-						<Route exact path='/contact' component={Contact} />
-						<Route exact path='/shop' component={Shop} />
-						<Route exact path='/login' component={Login} />
-					</Switch>
-					<Footer />
-				</Fragment>
-			</Router>
-		</PostState>
+		<StickyContainer>
+			<PostState>
+				<Router>
+					<Fragment>
+						<Sticky>
+							{({
+								style,
+
+								// the following are also available but unused in this example
+								isSticky,
+								wasSticky,
+								distanceFromTop,
+								distanceFromBottom,
+								calculatedHeight
+							}) => (
+								<header style={style}>
+									<NavBar />
+								</header>
+							)}
+						</Sticky>
+						<Switch>
+							<Route exact path='/' component={Home} />
+							<Route exact path='/product' component={Product} />
+							<Route exact path='/blog' component={Blog} />
+							<Route exact path='/contact' component={Contact} />
+							<Route exact path='/shop' component={Shop} />
+							<Route exact path='/login' component={Login} />
+						</Switch>
+						<Footer />
+					</Fragment>
+				</Router>
+			</PostState>
+		</StickyContainer>
 	);
 };
 
