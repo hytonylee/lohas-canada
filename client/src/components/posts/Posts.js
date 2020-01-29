@@ -19,7 +19,9 @@ const Posts = () => {
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				posts.map(post => <PostItem post={post} />)
+				posts.map(post =>
+					post.section === 'front page' ? <PostItem post={post} /> : <Spinner />
+				)
 			) : (
 				<Spinner />
 			)}
