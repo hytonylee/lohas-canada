@@ -26,16 +26,7 @@ const App = () => {
 				<Router>
 					<Fragment>
 						<Sticky>
-							{({
-								style,
-
-								// the following are also available but unused in this example
-								isSticky,
-								wasSticky,
-								distanceFromTop,
-								distanceFromBottom,
-								calculatedHeight
-							}) => (
+							{({ style }) => (
 								<header style={style}>
 									<NavBar />
 								</header>
