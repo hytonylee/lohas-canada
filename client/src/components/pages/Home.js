@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import Display from '../layout/Display';
-import Post from '../posts/Posts';
+import Posts from '../posts/Posts';
 
 const Home = () => {
 	return (
 		<Fragment>
 			<Display />
 			<div className='container'>
-				<Post page='front page' />
+				<Posts page='front page' />
 			</div>
 		</Fragment>
 	);
