@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Dashboard = () => {
 	return (
-		<div>
+		<Fragment>
 			<TransitionGroup>
 				<CSSTransition timeout={500}>
 					<AdminMenu />
@@ -15,7 +15,7 @@ const Dashboard = () => {
 				This is Dashboard
 				<Posts page='blog' />
 			</div>
-		</div>
+		</Fragment>
 	);
 };
 

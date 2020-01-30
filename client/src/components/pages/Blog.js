@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Posts from '../posts/Posts';
 
 const Blog = () => {
-	return <div>this is the blog page</div>;
+	return (
+		<Fragment>
+			<div className='container'>
+				<Posts page='blog' />
+			</div>
+		</Fragment>
+	);
 };
 
 export default Blog;
