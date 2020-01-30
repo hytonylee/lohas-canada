@@ -19,7 +19,7 @@ const NavBar = () => {
 				<Link to='/product'>Product</Link>
 				<Link to='/blog'>Blog</Link>
 				<Link to='/contact'>Contact</Link>
-				<Link to='/contact'>
+				<Link to='/dashboard'>
 					<i className='fas fa-tools'></i>
 				</Link>
 				<Link to='/shop'>

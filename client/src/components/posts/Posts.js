@@ -21,7 +21,11 @@ const Posts = ({ page }) => {
 			{console.log}
 			{posts !== null && !loading ? (
 				posts.map(post =>
-					post.section === `${page}` ? <PostItem post={post} /> : <Spinner />
+					post.section === `${page}` ? (
+						<PostItem key={post._id} post={post} />
+					) : (
+						<Spinner />
+					)
 				)
 			) : (
 				<Spinner />
