@@ -21,9 +21,6 @@ const NavBar = () => {
 				<a href='mailto:name@email.com?Subject=Inquiry%20from%20the%20website'>
 					Contact
 				</a>
-				{/* <Link to='mailto:name@email.com?Subject=Inquiry%20from%20the%20website'>
-					Contact
-				</Link> */}
 				<Link to='/dashboard'>
 					<i className='fas fa-tools'></i>
 				</Link>

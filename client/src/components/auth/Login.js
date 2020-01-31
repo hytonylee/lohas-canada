@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import Display from '../layout/Display';
+// import AlertContext from '../../context/alert/alertContext';
+// import AuthContext from '../../context/auth/authContext';
 
 const Login = () => {
 	return (
