@@ -22,7 +22,7 @@ import AuthState from './context/auth/AuthState';
 import './App.css';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-import setAuthToken from './utils/setAuthTokens';
+import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -48,7 +48,6 @@ const App = () => {
 									<Route exact path='/' component={Home} />
 									<Route exact path='/product' component={Product} />
 									<Route exact path='/blog' component={Blog} />
-									{/* <Route exact path='/contact' component={Contact} /> */}
 									<Route exact path='/dashboard' component={Dashboard} />
 									<Route exact path='/shop' component={Shop} />
 									<Route exact path='/login' component={Login} />
