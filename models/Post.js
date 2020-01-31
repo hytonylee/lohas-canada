@@ -19,6 +19,9 @@ const PostSchema = mongoose.Schema({
 		default: 'blog',
 		required: true
 	},
+	imgUrl: {
+		content: String
+	},
 	content: {
 		type: String,
 		required: true

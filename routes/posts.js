@@ -51,13 +51,14 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { title, section, status, content } = req.body;
+		const { title, section, status, imgUrl, content } = req.body;
 
 		try {
 			const newPost = new Post({
 				title,
 				section,
 				status,
+				imgUrl,
 				content,
 				user: req.user.id
 			});
@@ -98,6 +99,7 @@ router.put(
 		const postFields = {};
 		if (title) postFields.title = title;
 		if (section) postFields.section = section;
+		if (imgUrl) postFields.imgUrl = imgUrl;
 		if (content) postFields.content = content;
 		if (status) postFields.status = status;
 

@@ -14,6 +14,8 @@ import PrivateRoute from './components/routing/PrivateRoute';
 
 // State
 import PostState from './context/post/PostState';
+import AlertState from './context/alert/AlertState';
+import AuthState from './context/auth/AuthState';
 
 // Styles
 import './App.css';
@@ -22,29 +24,33 @@ import { StickyContainer, Sticky } from 'react-sticky';
 const App = () => {
 	return (
 		<StickyContainer>
-			<PostState>
-				<Router>
-					<Fragment>
-						<Sticky>
-							{({ style }) => (
-								<header style={style}>
-									<NavBar />
-								</header>
-							)}
-						</Sticky>
-						<Switch>
-							<Route exact path='/' component={Home} />
-							<Route exact path='/product' component={Product} />
-							<Route exact path='/blog' component={Blog} />
-							{/* <Route exact path='/contact' component={Contact} /> */}
-							<Route exact path='/dashboard' component={Dashboard} />
-							<Route exact path='/shop' component={Shop} />
-							<Route exact path='/login' component={Login} />
-						</Switch>
-						<Footer />
-					</Fragment>
-				</Router>
-			</PostState>
+			<AuthState>
+				<PostState>
+					<AlertState>
+						<Router>
+							<Fragment>
+								<Sticky>
+									{({ style }) => (
+										<header style={style}>
+											<NavBar />
+										</header>
+									)}
+								</Sticky>
+								<Switch>
+									<Route exact path='/' component={Home} />
+									<Route exact path='/product' component={Product} />
+									<Route exact path='/blog' component={Blog} />
+									{/* <Route exact path='/contact' component={Contact} /> */}
+									<Route exact path='/dashboard' component={Dashboard} />
+									<Route exact path='/shop' component={Shop} />
+									<Route exact path='/login' component={Login} />
+								</Switch>
+								<Footer />
+							</Fragment>
+						</Router>
+					</AlertState>
+				</PostState>
+			</AuthState>
 		</StickyContainer>
 	);
 };
