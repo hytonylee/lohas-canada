@@ -12,7 +12,7 @@ const Login = props => {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			props.history.push('/');
+			props.history.push('/dashboard');
 		}
 
 		if (error === 'Invalide Credentials!') {
@@ -21,7 +21,7 @@ const Login = props => {
 		}
 
 		// eslint-disable-next-line
-	}, [error, isAuthenticated, prop.history, clearErrors, setAlert]);
+	}, [error, isAuthenticated, props.history, clearErrors, setAlert]);
 
 	const [user, setUser] = useState({
 		email: '',
@@ -76,7 +76,7 @@ const Login = props => {
 								name='password'
 								value={password}
 								autoComplete='password'
-								onChange='#'
+								onChange={onChange}
 								required
 							/>
 						</div>

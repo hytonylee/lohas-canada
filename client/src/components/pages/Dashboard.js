@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import AdminMenu from '../layout/AdminMenu';
-import Posts from '../posts/Posts';
+import AdminPosts from '../posts/AdminPosts';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Dashboard = () => {
@@ -13,7 +13,7 @@ const Dashboard = () => {
 			</TransitionGroup>
 			<div className='container'>
 				This is Dashboard
-				<Posts page='blog' />
+				<AdminPosts page='blog' />
 			</div>
 		</Fragment>
 	);
