@@ -16,33 +16,17 @@ const Posts = ({ page }) => {
 		return <h4>Loading Error: unable to load any posts</h4>;
 	}
 
-	let displayPosts = [];
-	if (posts !== null && !loading) {
-		posts.map(post => {
-			if (post.section === `${page}`) {
-				displayPosts.push(post);
-			}
-		});
-	}
-
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				// posts.map(post =>
-				// 	post.section === `${page}` ? (
-				// 		<PostItem key={post._id} post={post} />
-				// 	) : (
-				// 		<Spinner />
-				// 	)
-				// )
-				// displayPosts.map(post => {
-				// 	<PostItem key={post._id} post={post} />;
-				// })
-				console.log(displayPosts)
+				posts.map(post =>
+					post.section === `${page}` ? (
+						<PostItem key={post._id} post={post} />
+					) : null
+				)
 			) : (
 				<Spinner />
 			)}
-			{/* {DisplayPost} */}
 		</Fragment>
 	);
 };

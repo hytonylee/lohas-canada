@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Posts from '../posts/Posts';
 
 const Product = () => {
-	return <div>This is the product page</div>;
+	return (
+		<Fragment>
+			<div className='container'>
+				<Posts page='product' />
+			</div>
+		</Fragment>
+	);
 };
 
 export default Product;
