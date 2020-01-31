@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
+import Alerts from './components/layout/Alerts';
 import Home from './components/pages/Home';
 import Product from './components/pages/Product';
 import Blog from './components/pages/Blog';
@@ -21,12 +22,18 @@ import AuthState from './context/auth/AuthState';
 import './App.css';
 import { StickyContainer, Sticky } from 'react-sticky';
 
+import setAuthToken from './utils/setAuthTokens';
+
+if (localStorage.token) {
+	setAuthToken(localStorage.token);
+}
+
 const App = () => {
 	return (
-		<StickyContainer>
-			<AuthState>
-				<PostState>
-					<AlertState>
+		<AuthState>
+			<PostState>
+				<AlertState>
+					<StickyContainer>
 						<Router>
 							<Fragment>
 								<Sticky>
@@ -36,6 +43,7 @@ const App = () => {
 										</header>
 									)}
 								</Sticky>
+								<Alerts />
 								<Switch>
 									<Route exact path='/' component={Home} />
 									<Route exact path='/product' component={Product} />
@@ -48,10 +56,10 @@ const App = () => {
 								<Footer />
 							</Fragment>
 						</Router>
-					</AlertState>
-				</PostState>
-			</AuthState>
-		</StickyContainer>
+					</StickyContainer>
+				</AlertState>
+			</PostState>
+		</AuthState>
 	);
 };
 

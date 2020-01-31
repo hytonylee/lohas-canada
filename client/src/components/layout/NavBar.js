@@ -6,11 +6,13 @@ const NavBar = () => {
 	return (
 		<nav className='navbar bg-blue'>
 			<h1>
-				<img
-					src='lohas-logo-white.svg'
-					alt='lohas-white'
-					style={{ height: '8vh' }}
-				/>
+				<Link to='/'>
+					<img
+						src='lohas-logo-white.svg'
+						alt='lohas-white'
+						style={{ height: '8vh' }}
+					/>
+				</Link>
 			</h1>
 			<ul>
 				<Link to='/'>
