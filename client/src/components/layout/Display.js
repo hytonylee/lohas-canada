@@ -1,11 +1,10 @@
 import React from 'react';
+import Alerts from './Alerts';
 
 const Display = () => {
 	return (
 		<div className='display'>
-			<div>{/* <h1>
-					<i>Healthy & Sustainable Lifestyle</i>
-				</h1> */}</div>
+			<Alerts />
 		</div>
 	);
 };

@@ -1,8 +1,34 @@
-import React from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
+import PostContext from '../../context/post/postContext';
 import '../../public/lohas-logo-white.svg';
 
 const NavBar = () => {
+	const authContext = useContext(AuthContext);
+	const postContext = useContext(PostContext);
+	const { isAuthenticated, logout, user } = authContext;
+	const { clearPosts } = postContext;
+
+	const onLogout = () => {
+		logout();
+		clearPosts();
+	};
+
+	const authLinks = (
+		<Fragment>
+			<li>Hello {user && user.name}</li>
+			<li>
+				<a onClick={onLogout} href='#!'>
+					<i className='fas fa-sign-out-alt'></i>{' '}
+					<span className='hide-sm'>Logout</span>
+				</a>
+			</li>
+		</Fragment>
+	);
+
+	const guestLinks = <Fragment></Fragment>;
+
 	return (
 		<nav className='navbar bg-blue'>
 			<h1>
@@ -23,13 +49,13 @@ const NavBar = () => {
 				<a href='mailto:name@email.com?Subject=Inquiry%20from%20the%20website'>
 					Contact
 				</a>
-				<Link to='/dashboard'>
-					<i className='fas fa-tools'></i>
-				</Link>
 				<Link to='/shop'>
 					<li>
 						<i className='fas fa-shopping-cart'></i>
 					</li>
+				</Link>
+				<Link to='/dashboard'>
+					<i className='fas fa-tools'></i>
 				</Link>
 			</ul>
 		</nav>

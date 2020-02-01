@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import NavBar from './components/layout/NavBar';
 import Footer from './components/layout/Footer';
-import Alerts from './components/layout/Alerts';
 import Home from './components/pages/Home';
 import Product from './components/pages/Product';
 import Blog from './components/pages/Blog';
@@ -43,7 +42,6 @@ const App = () => {
 										</header>
 									)}
 								</Sticky>
-								<Alerts />
 								<Switch>
 									<Route exact path='/' component={Home} />
 									<Route exact path='/product' component={Product} />
