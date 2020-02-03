@@ -8,16 +8,18 @@ const NavBar = () => {
 	const authContext = useContext(AuthContext);
 	const postContext = useContext(PostContext);
 	const { isAuthenticated, logout, user } = authContext;
-	const { clearPosts } = postContext;
+	// const { clearPosts } = postContext;
 
 	const onLogout = () => {
 		logout();
-		clearPosts();
+		// clearPosts();
 	};
 
 	const authLinks = (
 		<Fragment>
-			<li>Hello {user && user.name}</li>
+			<Link to='/dashboard'>
+				<i className='fas fa-tools'></i>
+			</Link>
 			<li>
 				<a onClick={onLogout} href='#!'>
 					<i className='fas fa-sign-out-alt'></i>{' '}
@@ -26,8 +28,6 @@ const NavBar = () => {
 			</li>
 		</Fragment>
 	);
-
-	const guestLinks = <Fragment></Fragment>;
 
 	return (
 		<nav className='navbar bg-blue'>
@@ -54,9 +54,7 @@ const NavBar = () => {
 						<i className='fas fa-shopping-cart'></i>
 					</li>
 				</Link>
-				<Link to='/dashboard'>
-					<i className='fas fa-tools'></i>
-				</Link>
+				{isAuthenticated ? authLinks : null}
 			</ul>
 		</nav>
 	);
