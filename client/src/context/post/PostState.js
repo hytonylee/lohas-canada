@@ -11,9 +11,10 @@ import {
 	// CLEAR_CURRENT,
 	// UPDATE_POST,
 	// FILTER_POSTS,
-	// CLEAR_POSTS,
+	CLEAR_POSTS,
 	// CLEAR_FILTER,
-	POST_ERROR
+	POST_ERROR,
+	CLEAR_CURRENT
 } from '../types';
 
 const PostState = props => {
@@ -43,6 +44,13 @@ const PostState = props => {
 
 	// Get All Posts (Private)
 
+	// Clear Posts after log out
+	const clearPosts = () => {
+		dispatch({
+			type: CLEAR_POSTS
+		});
+	};
+
 	// Add post
 
 	// Delete post
@@ -52,6 +60,11 @@ const PostState = props => {
 	// Set Current Post
 
 	// Clear Current Post
+	const clearCurrent = () => {
+		dispatch({
+			type: CLEAR_CURRENT
+		});
+	};
 
 	// Filtered Posts
 
@@ -64,7 +77,9 @@ const PostState = props => {
 				current: state.current,
 				filtered: state.filtered,
 				error: state.error,
-				getPosts
+				getPosts,
+				clearPosts,
+				clearCurrent
 			}}
 		>
 			{props.children}
