@@ -20,12 +20,10 @@ const NavBar = () => {
 			<Link to='/dashboard'>
 				<i className='fas fa-tools'></i>
 			</Link>
-			<li>
-				<a onClick={onLogout} href='#!'>
-					<i className='fas fa-sign-out-alt'></i>{' '}
-					<span className='hide-sm'>Logout</span>
-				</a>
-			</li>
+			<a onClick={onLogout} href='#!'>
+				<i className='fas fa-sign-out-alt'></i>{' '}
+				<span className='hide-sm'>Logout</span>
+			</a>
 		</Fragment>
 	);
 
