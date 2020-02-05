@@ -3,7 +3,7 @@ import PostContext from '../../context/post/postContext';
 
 const PostFilter = () => {
 	const postContext = useContext(PostContext);
-	const { filerPosts, clearFilter, filtered } = postContext;
+	const { filterPosts, clearFilter, filtered } = postContext;
 	const text = useRef('');
 
 	useEffect(() => {

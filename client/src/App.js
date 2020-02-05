@@ -7,7 +7,7 @@ import Footer from './components/layout/Footer';
 import Home from './components/pages/Home';
 import Product from './components/pages/Product';
 import Blog from './components/pages/Blog';
-import Shop from './components/pages/Shop';
+// import Shop from './components/pages/Shop';
 import NotFound from './components/pages/NotFound';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/auth/Login';
