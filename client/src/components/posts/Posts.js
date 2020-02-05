@@ -1,11 +1,12 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
 const Posts = ({ page }) => {
 	const postContext = useContext(PostContext);
-	const { posts, loading, getPosts } = postContext;
+	const { posts, filtered, loading, getPosts } = postContext;
 
 	useEffect(() => {
 		getPosts();
@@ -19,11 +20,27 @@ const Posts = ({ page }) => {
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				posts.map(post =>
-					post.section === `${page}` ? (
-						<PostItem key={post._id} post={post} />
-					) : null
-				)
+				<TransitionGroup>
+					{filtered !== null
+						? filtered.map(post => (
+								<CSSTransition key={post._id} timeout={500} classNames='item'>
+									{posts.map(post =>
+										post.section === `${page}` ? (
+											<PostItem key={post._id} post={post} />
+										) : null
+									)}
+								</CSSTransition>
+						  ))
+						: posts.map(post => (
+								<CSSTransition key={post._id} timeout={500} classNames='item'>
+									{posts.map(post =>
+										post.section === `${page}` ? (
+											<PostItem key={post._id} post={post} />
+										) : null
+									)}
+								</CSSTransition>
+						  ))}
+				</TransitionGroup>
 			) : (
 				<Spinner />
 			)}
@@ -32,3 +49,15 @@ const Posts = ({ page }) => {
 };
 
 export default Posts;
+
+// {
+// posts !== null && !loading ? (
+// posts.map(post =>
+// 	post.section === `${page}` ? (
+// 		<PostItem key={post._id} post={post} />
+// 	) : null
+// )
+// ) : (
+// 		<Spinner />
+// 	)
+// }
