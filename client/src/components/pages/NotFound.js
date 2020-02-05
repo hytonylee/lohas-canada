@@ -15,7 +15,8 @@ const NotFound = props => {
 				<div className='card'>
 					<h1>
 						<span className='text-primary'>
-							<i className='fas fa-exclamation-triangle' /> Page Not Found
+							<i className='fas fa-exclamation-triangle' /> Page Not Found or
+							Under Construction!!
 						</span>
 					</h1>
 				</div>
