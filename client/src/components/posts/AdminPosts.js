@@ -3,12 +3,12 @@ import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
-const Posts = ({ page }) => {
+const Posts = () => {
 	const postContext = useContext(PostContext);
-	const { posts, loading, getPosts } = postContext;
+	const { posts, loading, getAllPosts } = postContext;
 
 	useEffect(() => {
-		getPosts();
+		getAllPosts();
 		// eslint-disable-next-line
 	}, []);
 

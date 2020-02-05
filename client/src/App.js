@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
@@ -16,12 +16,11 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import PostState from './context/post/PostState';
 import AlertState from './context/alert/AlertState';
 import AuthState from './context/auth/AuthState';
+import setAuthToken from './utils/setAuthToken';
 
 // Styles
 import './App.css';
 import { StickyContainer, Sticky } from 'react-sticky';
-
-import setAuthToken from './utils/setAuthToken';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -34,25 +33,24 @@ const App = () => {
 				<AlertState>
 					<StickyContainer>
 						<Router>
-							<Fragment>
-								<Sticky>
-									{({ style }) => (
-										<header style={style}>
-											<NavBar />
-										</header>
-									)}
-								</Sticky>
-								<Switch>
-									<PrivateRoute exact path='/dashboard' component={Dashboard} />
-									<Route exact path='/' component={Home} />
-									<Route exact path='/product' component={Product} />
-									<Route exact path='/blog' component={Blog} />
-									<Route exact path='/shop' component={Shop} />
-									<Route exact path='/login' component={Login} />
-								</Switch>
-								<Footer />
-							</Fragment>
+							<Sticky>
+								{({ style }) => (
+									<header style={style}>
+										<NavBar />
+									</header>
+								)}
+							</Sticky>
+
+							<Switch>
+								<PrivateRoute exact path='/dashboard' component={Dashboard} />
+								<Route exact path='/' component={Home} />
+								<Route exact path='/product' component={Product} />
+								<Route exact path='/blog' component={Blog} />
+								<Route exact path='/shop' component={Shop} />
+								<Route exact path='/login' component={Login} />
+							</Switch>
 						</Router>
+						<Footer />
 					</StickyContainer>
 				</AlertState>
 			</PostState>

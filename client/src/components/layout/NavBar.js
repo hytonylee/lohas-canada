@@ -7,7 +7,7 @@ import '../../public/lohas-logo-white.svg';
 const NavBar = () => {
 	const authContext = useContext(AuthContext);
 	const postContext = useContext(PostContext);
-	const { isAuthenticated, logout, user } = authContext;
+	const { isAuthenticated, logout } = authContext;
 	const { clearPosts } = postContext;
 
 	const onLogout = () => {

@@ -4,7 +4,7 @@ import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
 	GET_POSTS,
-	// GET_ALL_POSTS,
+	GET_ALL_POSTS,
 	// ADD_POST,
 	// DELETE_POST,
 	// SET_CURRENT,
@@ -43,6 +43,20 @@ const PostState = props => {
 	};
 
 	// Get All Posts (Private)
+	const getAllPosts = async () => {
+		try {
+			const res = await axios.get('/api/posts/dashboard');
+			dispatch({
+				type: GET_ALL_POSTS,
+				payload: res.data
+			});
+		} catch (err) {
+			dispatch({
+				type: POST_ERROR,
+				error: err.response.msg
+			});
+		}
+	};
 
 	// Clear Posts after log out
 	const clearPosts = () => {
@@ -78,6 +92,7 @@ const PostState = props => {
 				filtered: state.filtered,
 				error: state.error,
 				getPosts,
+				getAllPosts,
 				clearPosts,
 				clearCurrent
 			}}
