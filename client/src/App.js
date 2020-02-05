@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
@@ -32,27 +32,29 @@ const App = () => {
 		<AuthState>
 			<PostState>
 				<AlertState>
-					<StickyContainer>
-						<Router>
-							<Sticky>
-								{({ style }) => (
-									<header style={style}>
-										<NavBar />
-									</header>
-								)}
-							</Sticky>
-							<Switch>
-								<Route exact path='/' component={Home} />
-								<Route exact path='/product' component={Product} />
-								<Route exact path='/blog' component={Blog} />
-								<Route exact path='/shop' component={Shop} />
-								<Route exact path='/login' component={Login} />
-								<Route component={NotFound} />
-								<PrivateRoute exact path='/dashboard' component={Dashboard} />
-							</Switch>
-						</Router>
-						<Footer />
-					</StickyContainer>
+					<Router>
+						<Fragment>
+							<StickyContainer>
+								<Sticky>
+									{({ style }) => (
+										<header style={style}>
+											<NavBar />
+										</header>
+									)}
+								</Sticky>
+								<Switch>
+									<PrivateRoute exact path='/dashboard' component={Dashboard} />
+									<Route exact path='/' component={Home} />
+									<Route exact path='/product' component={Product} />
+									<Route exact path='/blog' component={Blog} />
+									<Route exact path='/shop' component={Shop} />
+									<Route exact path='/login' component={Login} />
+									<Route component={NotFound} />
+								</Switch>
+								<Footer />
+							</StickyContainer>
+						</Fragment>
+					</Router>
 				</AlertState>
 			</PostState>
 		</AuthState>
