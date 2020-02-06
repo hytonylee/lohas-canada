@@ -2,10 +2,11 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Posts = () => {
 	const postContext = useContext(PostContext);
-	const { posts, loading, getAllPosts } = postContext;
+	const { posts, loading, getAllPosts, filtered } = postContext;
 
 	useEffect(() => {
 		getAllPosts();
@@ -19,7 +20,19 @@ const Posts = () => {
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				posts.map(post => <PostItem key={post._id} post={post} />)
+				<TransitionGroup>
+					{filtered !== null
+						? filtered.map(post => (
+								<CSSTransition key={post._id} timeout={500} classNames='item'>
+									<PostItem post={post} />
+								</CSSTransition>
+						  ))
+						: posts.map(post => (
+								<CSSTransition key={post._id} timeout={500} classNames='item'>
+									<PostItem post={post} />
+								</CSSTransition>
+						  ))}
+				</TransitionGroup>
 			) : (
 				<Spinner />
 			)}
