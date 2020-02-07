@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
 import NavBar from './components/layout/NavBar';
+import AdminMenu from './components/layout/AdminMenu';
 import Footer from './components/layout/Footer';
 import Home from './components/pages/Home';
 import Product from './components/pages/Product';
@@ -18,6 +19,7 @@ import PostState from './context/post/PostState';
 import AlertState from './context/alert/AlertState';
 import AuthState from './context/auth/AuthState';
 import setAuthToken from './utils/setAuthToken';
+import AuthContext from './context/auth/authContext';
 
 // Styles
 import './App.css';
@@ -27,7 +29,8 @@ if (localStorage.token) {
 	setAuthToken(localStorage.token);
 }
 
-const App = () => {
+const App = ({ isAuthenticated }) => {
+	console.log(typeof isAuthenticated);
 	return (
 		<AuthState>
 			<PostState>
@@ -39,6 +42,7 @@ const App = () => {
 									{({ style }) => (
 										<header style={style}>
 											<NavBar />
+											{/* {isAuthenticated !== null ? <AdminMenu /> : null} */}
 										</header>
 									)}
 								</Sticky>
