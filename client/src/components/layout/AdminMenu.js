@@ -18,11 +18,11 @@ const AdminMenu = () => {
 		<div style={{ backgroundColor: '#3f3e3e', height: '30px', color: 'white' }}>
 			<div className='sub-menu'>
 				<ul>
-					<li>Hello, {user && user.name}</li>
-					<li>
-						<button onClick={showModal}>
-							<i className='fas fa-plus-circle' /> Add pst
-						</button>
+					<li>Hello, {user && user.name}!! </li>
+				</ul>
+				<ul>
+					<li onClick={showModal}>
+						<i className='fas fa-plus-circle' /> Post
 					</li>
 				</ul>
 			</div>
