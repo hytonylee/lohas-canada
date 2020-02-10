@@ -52,7 +52,7 @@ const PostForm = () => {
 	};
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} className='card bg-light'>
 			<h2 className='text-primary'>
 				{current ? 'Edit Post' : 'Create a New Post'}
 			</h2>
