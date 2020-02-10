@@ -70,7 +70,7 @@ const PostForm = () => {
 				value={imgUrl}
 				onChange={onChange}
 			/>
-			<h5>Post Location</h5>
+			<h4>Post Location</h4>
 			<input
 				type='radio'
 				name='section'
@@ -78,6 +78,7 @@ const PostForm = () => {
 				checked={section === 'front page'}
 				onChange={onChange}
 			/>{' '}
+			Front Page{' '}
 			<input
 				type='radio'
 				name='section'
@@ -85,14 +86,15 @@ const PostForm = () => {
 				checked={section === 'blog'}
 				onChange={onChange}
 			/>{' '}
+			Blog Page{' '}
 			<input
 				type='radio'
 				name='section'
 				value='product'
 				checked={section === 'product'}
 				onChange={onChange}
-			/>{' '}
-			<h5>Post Status</h5>{' '}
+			/>
+			Product Page <h4>Post Status</h4>{' '}
 			<input
 				type='radio'
 				name='status'
@@ -100,6 +102,7 @@ const PostForm = () => {
 				checked={status === 'draft'}
 				onChange={onChange}
 			/>{' '}
+			Draft{' '}
 			<input
 				type='radio'
 				name='status'
@@ -107,7 +110,7 @@ const PostForm = () => {
 				checked={status === 'completed'}
 				onChange={onChange}
 			/>{' '}
-			<h5>Content</h5>
+			Completed <h4>Content</h4>
 			<textarea
 				type='text'
 				placeholer='content'

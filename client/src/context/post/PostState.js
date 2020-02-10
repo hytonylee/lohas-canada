@@ -90,7 +90,7 @@ const PostState = props => {
 	// Delete post
 	const deletePost = async id => {
 		try {
-			await axios.delete(`/api/posts/${id}`);
+			await axios.delete(`/api/posts/dashboard/${id}`);
 			dispatch({
 				type: DELETE_POST,
 				payload: id
