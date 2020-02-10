@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import PostItem from './PostItem';
+// import PostItem from './PostItem';
+import PostListItem from './PostListItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -24,12 +25,12 @@ const Posts = () => {
 					{filtered !== null
 						? filtered.map(post => (
 								<CSSTransition key={post._id} timeout={500} classNames='item'>
-									<PostItem post={post} />
+									<PostListItem post={post} />
 								</CSSTransition>
 						  ))
 						: posts.map(post => (
 								<CSSTransition key={post._id} timeout={500} classNames='item'>
-									<PostItem post={post} />
+									<PostListItem post={post} />
 								</CSSTransition>
 						  ))}
 				</TransitionGroup>
