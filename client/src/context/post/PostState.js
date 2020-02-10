@@ -73,7 +73,7 @@ const PostState = props => {
 		};
 
 		try {
-			const res = await axios.post('/api/posts', post, config);
+			const res = await axios.post('/api/posts/dashboard', post, config);
 
 			dispatch({
 				type: ADD_POST,

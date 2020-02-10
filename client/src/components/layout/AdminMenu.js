@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PostForm from '../posts/PostForm';
 import AuthContext from '../../context/auth/authContext';
 import ReactModal from 'react-modal';
 import { useModal } from 'react-modal-hook';
@@ -9,7 +10,7 @@ const AdminMenu = () => {
 
 	const [showModal, hideModal] = useModal(() => (
 		<ReactModal isOpen>
-			<p>Modal content</p>
+			{/* <PostForm /> */}
 			<button onClick={hideModal}>Hide modal</button>
 		</ReactModal>
 	));
