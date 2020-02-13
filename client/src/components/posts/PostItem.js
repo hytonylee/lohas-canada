@@ -7,10 +7,10 @@ const PostItem = ({ post }) => {
 
 	return (
 		<div className='card-post' keys={_id}>
+			<h3>{title.toUpperCase()}</h3>
 			<img className='image' src={imgUrl ? imgUrl : defaultImage} />
 			<div className='card-container'>
-				<h3>{title}</h3>
-				<h6>{date}</h6>
+				<h6>Posted on {date.slice(0, 10)}</h6>
 				<p>{content}</p>
 			</div>
 		</div>
