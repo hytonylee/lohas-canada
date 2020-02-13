@@ -16,7 +16,7 @@ const PostListItem = ({ post }) => {
 	return (
 		<div className='card bg-light' key={_id}>
 			<h3 className='text-primary text-left'>{title}</h3>
-			<p>{content.slice(0, 200)}...</p>
+			<p>{content.slice(0, 150)}...</p>
 			<p>
 				<button
 					className='btn btn-dark btn-sm'

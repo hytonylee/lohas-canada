@@ -56,6 +56,7 @@ const PostForm = () => {
 			<h2 className='text-primary'>
 				{current ? 'Edit Post' : 'Create a New Post'}
 			</h2>
+			<h4>Title</h4>
 			<input
 				type='text'
 				placeholer='title'
@@ -63,6 +64,7 @@ const PostForm = () => {
 				value={title}
 				onChange={onChange}
 			/>
+			<h4>Add Image Url</h4>
 			<input
 				type='text'
 				placeholer='image url'
@@ -93,7 +95,7 @@ const PostForm = () => {
 				value='product'
 				checked={section === 'product'}
 				onChange={onChange}
-			/>
+			/>{' '}
 			Product Page <h4>Post Status</h4>{' '}
 			<input
 				type='radio'
