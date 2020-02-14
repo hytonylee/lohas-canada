@@ -19,6 +19,23 @@ router.get('/', async (req, res) => {
 	}
 });
 
+// @route   Get api/posts?section
+// @desc    Get posts based on page section
+// @access  Public
+router.get('/section/:query', async (req, res) => {
+	let query = req.params.query;
+
+	try {
+		const posts = await Post.find({ section: query }).sort({
+			date: -1
+		});
+		res.json(posts);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error: Unable loading post data.');
+	}
+});
+
 // @route		Get api/posts/dashboard
 // @desc		Get all published and draft posts
 // @access  Private
