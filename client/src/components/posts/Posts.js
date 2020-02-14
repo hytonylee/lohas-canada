@@ -3,9 +3,9 @@ import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
-const Posts = ({ page }) => {
+const Posts = ({ section }) => {
 	const postContext = useContext(PostContext);
-	const { posts, filtered, loading, getPosts } = postContext;
+	const { posts, filtered, loading, getPostsBySection, getPosts } = postContext;
 
 	useEffect(() => {
 		getPosts();
@@ -20,10 +20,12 @@ const Posts = ({ page }) => {
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				posts.map(post =>
-					post.section === `${page}` ? (
+				posts.map(
+					post => (
+						// post.section === `${page}` ? (
 						<PostItem key={post._id} post={post} />
-					) : null
+					)
+					// 	) : null
 				)
 			) : (
 				<Spinner />

@@ -7,7 +7,7 @@ const Home = () => {
 		<Fragment>
 			<Display />
 			<div className='container'>
-				<Posts page='home' />
+				<Posts section='home' />
 			</div>
 		</Fragment>
 	);

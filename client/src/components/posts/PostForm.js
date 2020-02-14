@@ -76,8 +76,8 @@ const PostForm = () => {
 			<input
 				type='radio'
 				name='section'
-				value='front page'
-				checked={section === 'front page'}
+				value='home'
+				checked={section === 'home'}
 				onChange={onChange}
 			/>{' '}
 			Front Page{' '}

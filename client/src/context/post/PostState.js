@@ -4,6 +4,7 @@ import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
 	GET_POSTS,
+	GET_POSTS_BY_SECTION,
 	GET_ALL_POSTS,
 	ADD_POST,
 	DELETE_POST,
@@ -31,6 +32,22 @@ const PostState = props => {
 			const res = await axios.get('/api/posts/');
 			dispatch({
 				type: GET_POSTS,
+				payload: res.data
+			});
+		} catch (err) {
+			dispatch({
+				type: POST_ERROR,
+				error: err.response.msg
+			});
+		}
+	};
+
+	// Get Post by Section (Public)
+	const getPostsBySection = async section => {
+		try {
+			const res = await axios.get(`/api/posts/section/${section}`);
+			dispatch({
+				type: GET_POSTS_BY_SECTION,
 				payload: res.data
 			});
 		} catch (err) {
@@ -164,6 +181,7 @@ const PostState = props => {
 				filtered: state.filtered,
 				error: state.error,
 				getPosts,
+				getPostsBySection,
 				getAllPosts,
 				addPost,
 				updatePost,
