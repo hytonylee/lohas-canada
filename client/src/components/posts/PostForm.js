@@ -108,11 +108,11 @@ const PostForm = () => {
 			<input
 				type='radio'
 				name='status'
-				value='completed'
-				checked={status === 'completed'}
+				value='published'
+				checked={status === 'published'}
 				onChange={onChange}
 			/>{' '}
-			Completed <h4>Content</h4>
+			Published <h4>Content</h4>
 			<textarea
 				type='text'
 				placeholer='content'
