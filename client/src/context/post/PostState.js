@@ -43,9 +43,9 @@ const PostState = props => {
 	};
 
 	// Get Post by Section (Public)
-	const getPostsBySection = async section => {
+	const getPostsBySection = async () => {
 		try {
-			const res = await axios.get(`/api/posts/section/${section}`);
+			const res = await axios.get(`/api/posts/section/product`);
 			dispatch({
 				type: GET_POSTS_BY_SECTION,
 				payload: res.data
