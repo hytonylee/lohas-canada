@@ -15,7 +15,7 @@ const PostSchema = mongoose.Schema({
 	},
 	section: {
 		type: String,
-		enum: ['home', 'blog', 'product'],
+		// enum: ['home', 'blog', 'product'],
 		default: 'blog',
 		required: true
 	},
