@@ -130,7 +130,11 @@ const PostState = props => {
 		};
 
 		try {
-			const res = await axios.put(`/api/posts/${post._id}`, post, config);
+			const res = await axios.put(
+				`/api/posts/dashboard/${post._id}`,
+				post,
+				config
+			);
 
 			dispatch({
 				type: UPDATE_POST,
