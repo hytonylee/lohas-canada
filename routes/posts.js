@@ -51,53 +51,6 @@ router.get('/home', async (req, res) => {
 	}
 });
 
-// @route   Get api/blog
-// @desc    Get posts based on blog
-// @access  Public
-router.get('/blog', async (req, res) => {
-	try {
-		const posts = await Post.find({ section: 'blog' }).sort({
-			date: -1
-		});
-		res.json(posts);
-	} catch (err) {
-		console.error(err.message);
-		res.status(500).send('Server Error: Unable loading post data.');
-	}
-});
-
-// @route   Get api/product
-// @desc    Get posts based on product
-// @access  Public
-router.get('/product', async (req, res) => {
-	try {
-		const posts = await Post.find({ section: 'product' }).sort({
-			date: -1
-		});
-		res.json(posts);
-	} catch (err) {
-		console.error(err.message);
-		res.status(500).send('Server Error: Unable loading post data.');
-	}
-});
-
-// @route   Get api/posts/home
-// @desc    Get posts based on homepage
-// @access  Public
-router.get('/home', async (req, res) => {
-	let query = req.params.query;
-
-	try {
-		const posts = await Post.find({ section: 'home' }).sort({
-			date: -1
-		});
-		res.json(posts);
-	} catch (err) {
-		console.error(err.message);
-		res.status(500).send('Server Error: Unable loading post data.');
-	}
-});
-
 // @route		Get api/posts/dashboard
 // @desc		Get all published and draft posts
 // @access  Private
