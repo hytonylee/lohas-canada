@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+import PostContext from '../../context/post/postContext';
 import Display from '../layout/Display';
 import Posts from '../posts/Posts';
 
