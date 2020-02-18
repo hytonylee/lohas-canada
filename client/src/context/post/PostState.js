@@ -19,7 +19,7 @@ import {
 
 const PostState = props => {
 	const initialState = {
-		secition: 'home',
+		postSection: 'home',
 		posts: null,
 		current: null,
 		filtered: null
@@ -44,9 +44,9 @@ const PostState = props => {
 	};
 
 	// Get Post by Section (Public)
-	const getPostsBySection = async section => {
+	const getPostsBySection = async postSection => {
 		try {
-			const res = await axios.get(`/api/posts/section/${section}`);
+			const res = await axios.get(`/api/posts/section/${postSection}`);
 			dispatch({
 				type: GET_POSTS_BY_SECTION,
 				payload: res.data
@@ -177,7 +177,7 @@ const PostState = props => {
 	return (
 		<PostContext.Provider
 			value={{
-				section: state.section,
+				postSection: state.postSection,
 				posts: state.posts,
 				current: state.current,
 				filtered: state.filtered,

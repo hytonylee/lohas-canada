@@ -3,13 +3,12 @@ import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
-const Posts = ({ section }) => {
+const Posts = ({ postSection }) => {
 	const postContext = useContext(PostContext);
-	const { posts, filtered, loading, getPostsBySection, getPosts } = postContext;
+	const { posts, filtered, loading, getPostsBySection } = postContext;
 
 	useEffect(() => {
-		getPosts();
-
+		getPostsBySection(postSection);
 		// eslint-disable-next-line
 	}, []);
 
@@ -20,13 +19,7 @@ const Posts = ({ section }) => {
 	return (
 		<Fragment>
 			{posts !== null && !loading ? (
-				posts.map(
-					post => (
-						// post.section === `${page}` ? (
-						<PostItem key={post._id} post={post} />
-					)
-					// 	) : null
-				)
+				posts.map(post => <PostItem key={post._id} post={post} />)
 			) : (
 				<Spinner />
 			)}

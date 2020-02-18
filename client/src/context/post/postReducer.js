@@ -25,7 +25,8 @@ export default (state, action) => {
 			return {
 				...state,
 				posts: action.payload,
-				loading: false
+				loading: false,
+				postSection: ''
 			};
 		case GET_ALL_POSTS:
 			return {
