@@ -43,7 +43,6 @@ const PostForm = () => {
 		} else {
 			updatePost(post);
 		}
-
 		clearAll();
 	};
 

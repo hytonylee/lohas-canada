@@ -20,7 +20,8 @@ const PostSchema = mongoose.Schema({
 		required: true
 	},
 	imgUrl: {
-		type: String
+		type: String,
+		required: true
 	},
 	content: {
 		type: String,

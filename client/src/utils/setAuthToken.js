@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const setAuthTokens = token => {
+const setAuthToken = token => {
 	if (token) {
 		axios.defaults.headers.common['x-auth-token'] = token;
 	} else {
@@ -8,4 +8,4 @@ const setAuthTokens = token => {
 	}
 };
 
-export default setAuthTokens;
+export default setAuthToken;

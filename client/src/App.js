@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
@@ -28,37 +28,34 @@ if (localStorage.token) {
 }
 
 const App = () => {
-	console.log(typeof isAuthenticated);
 	return (
-		<Fragment>
-			<AuthState>
-				<PostState>
-					<AlertState>
-						<Router>
-							<StickyContainer>
-								<Sticky>
-									{({ style }) => (
-										<header style={style}>
-											<NavBar />
-										</header>
-									)}
-								</Sticky>
-								<Switch>
-									<PrivateRoute exact path='/dashboard' component={Dashboard} />
-									<Route exact path='/' component={Home} />
-									<Route exact path='/product' component={Product} />
-									<Route exact path='/blog' component={Blog} />
-									{/* <Route exact path='/shop' component={Shop} /> */}
-									<Route exact path='/login' component={Login} />
-									<Route path='*' component={NotFound} />
-								</Switch>
-								<Footer />
-							</StickyContainer>
-						</Router>
-					</AlertState>
-				</PostState>
-			</AuthState>
-		</Fragment>
+		<AuthState>
+			<PostState>
+				<AlertState>
+					<Router>
+						<StickyContainer>
+							<Sticky>
+								{({ style }) => (
+									<header style={style}>
+										<NavBar />
+									</header>
+								)}
+							</Sticky>
+							<Switch>
+								<PrivateRoute exact path='/dashboard' component={Dashboard} />
+								<Route exact path='/' component={Home} />
+								<Route exact path='/product' component={Product} />
+								<Route exact path='/blog' component={Blog} />
+								{/* <Route exact path='/shop' component={Shop} /> */}
+								<Route exact path='/login' component={Login} />
+								<Route path='*' component={NotFound} />
+							</Switch>
+							<Footer />
+						</StickyContainer>
+					</Router>
+				</AlertState>
+			</PostState>
+		</AuthState>
 	);
 };
 
