@@ -5,7 +5,7 @@ const Product = () => {
 	return (
 		<Fragment>
 			<div className='container'>
-				<Posts page='product' />
+				<Posts postSection='product' />
 			</div>
 		</Fragment>
 	);

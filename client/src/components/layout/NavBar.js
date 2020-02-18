@@ -44,7 +44,7 @@ const NavBar = () => {
 					<Link to='/'>
 						<i className='fas fa-home'></i>
 					</Link>
-					{/* <Link to='/product'>Product</Link> */}
+					<Link to='/product'>Product</Link>
 					<Link to='/blog'>Blog</Link>
 					<a href='mailto:name@email.com?Subject=Inquiry%20from%20the%20website'>
 						Contact
