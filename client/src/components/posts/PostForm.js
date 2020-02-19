@@ -1,5 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
+import 'froala-editor/css/froala_style.min.css';
+import 'froala-editor/css/froala_editor.pkgd.min.css';
+
+import FroalaEditorComponent from 'react-froala-wysiwyg';
 
 const PostForm = () => {
 	const postContext = useContext(PostContext);
@@ -111,14 +115,21 @@ const PostForm = () => {
 				checked={status === 'published'}
 				onChange={onChange}
 			/>{' '}
-			Published <h4>Content</h4>
-			<textarea
+			Published
+			<h4>Content</h4>
+			<FroalaEditorComponent
+				tag='textarea'
+				name='content'
+				value={content}
+				onChange={onChange}
+			/>
+			{/* <textarea
 				type='text'
 				placeholer='content'
 				name='content'
 				value={content}
 				onChange={onChange}
-			/>
+			/> */}
 			<div>
 				<input
 					type='submit'
