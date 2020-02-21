@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Components
@@ -21,6 +21,8 @@ import setAuthToken from './utils/setAuthToken';
 
 // Styles
 import './App.css';
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import { StickyContainer, Sticky } from 'react-sticky';
 
 if (localStorage.token) {
@@ -28,6 +30,11 @@ if (localStorage.token) {
 }
 
 const App = () => {
+	useEffect(() => {
+		// Initialize Materialize JS
+		M.AutoInit();
+	});
+
 	return (
 		<AuthState>
 			<PostState>
