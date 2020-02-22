@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Display from '../layout/Display';
+// import Display from '../layout/Display';
 import Posts from '../posts/Posts';
 
 const Home = () => {
