@@ -126,6 +126,11 @@ img {
 }
 
 /* Cards */
+.cardWrapper {
+	z-index: -999;
+	position: static;
+}
+
 .card {
 	padding: 2rem;
 	border: #ccc 1px dotted;
