@@ -436,11 +436,13 @@ table th {
 
 /* Navbar */
 .navbar {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 0;
+	z-index: 9999;
 	padding: 0.7rem 2rem 0.5rem;
-	z-index: 2;
 	width: 100%;
 	opacity: 0.95;
 	background: rgb(76, 88, 180);
@@ -471,8 +473,11 @@ table th {
 	color: var(--light-color);
 }
 
-.navbar .welcome span {
-	margin-right: 0.6rem;
+/* Slides */
+.slideWrapper {
+	z-index: -10;
+	position: absolute;
+	top: 0;
 }
 
 /* Sub-Menu */

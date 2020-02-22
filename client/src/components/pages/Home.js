@@ -6,8 +6,8 @@ const Home = () => {
 	return (
 		<Fragment>
 			{/* <Display /> */}
-			<div clasName='slider'>
-				<ul clasName='slides'></ul>
+			<div className='slider slideWrapper'>
+				<ul className='slides'></ul>
 			</div>
 			<div className='container'>
 				<Posts postSection='home' />

@@ -30,8 +30,8 @@ const NavBar = () => {
 
 	return (
 		<Fragment>
-			<nav className='navbar bg-blue'>
-				<h1>
+			<div className='navbar bg-blue'>
+				<h1 style={{ margin: 0 }}>
 					<Link to='/'>
 						<img
 							src='lohas-logo-white.svg'
@@ -56,7 +56,7 @@ const NavBar = () => {
 					</Link>
 					{isAuthenticated ? authLinks : null}
 				</ul>
-			</nav>
+			</div>
 			{isAuthenticated !== null && <AdminMenu />}
 		</Fragment>
 	);
