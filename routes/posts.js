@@ -86,12 +86,13 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { title, section, status, imgUrl, content } = req.body;
+		const { title, homeSlide, section, status, imgUrl, content } = req.body;
 
 		try {
 			const newPost = new Post({
 				title,
 				section,
+				homeSlide,
 				status,
 				imgUrl,
 				content,
@@ -111,10 +112,11 @@ router.post(
 // @desc		Update a post
 // @access	Private
 router.put('/dashboard/:id', auth, async (req, res) => {
-	const { title, section, content, status, imgUrl } = req.body;
+	const { title, section, homeSlide, content, status, imgUrl } = req.body;
 
 	const postFields = {};
 	if (title) postFields.title = title;
+	if (homeSlide) postFields.homeSlide = homeSlide;
 	if (section) postFields.section = section;
 	if (imgUrl) postFields.imgUrl = imgUrl;
 	if (content) postFields.content = content;

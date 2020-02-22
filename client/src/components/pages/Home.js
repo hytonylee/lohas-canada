@@ -5,7 +5,10 @@ import Posts from '../posts/Posts';
 const Home = () => {
 	return (
 		<Fragment>
-			<Display />
+			{/* <Display /> */}
+			<div clasName='slider'>
+				<ul clasName='slides'></ul>
+			</div>
 			<div className='container'>
 				<Posts postSection='home' />
 			</div>

@@ -13,9 +13,13 @@ const PostSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	homeSlide: {
+		type: Boolean,
+		required: true,
+		default: false
+	},
 	section: {
 		type: String,
-		// enum: ['home', 'blog', 'product'],
 		default: 'blog',
 		required: true
 	},
@@ -29,7 +33,6 @@ const PostSchema = mongoose.Schema({
 	},
 	status: {
 		type: String,
-		// enum: ['published', 'draft'],
 		default: 'draft',
 		required: true
 	},
