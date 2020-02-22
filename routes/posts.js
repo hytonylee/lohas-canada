@@ -36,12 +36,14 @@ router.get('/section/:query', async (req, res) => {
 	}
 });
 
-// @route   Get api/home
-// @desc    Get posts based on homepage
+// @route   Get api/posts?slide
+// @desc    Get posts based on page slide
 // @access  Public
-router.get('/home', async (req, res) => {
+router.get('/slide/:query', async (req, res) => {
+	let query = req.params.query;
+
 	try {
-		const posts = await Post.find({ section: 'home' }).sort({
+		const posts = await Post.find({ homeSlide: query }).sort({
 			date: -1
 		});
 		res.json(posts);

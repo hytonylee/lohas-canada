@@ -4,6 +4,7 @@ import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
 	GET_POSTS,
+	GET_POSTS_BY_SLIDE,
 	GET_POSTS_BY_SECTION,
 	GET_ALL_POSTS,
 	ADD_POST,
