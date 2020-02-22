@@ -58,7 +58,6 @@ const App = () => {
 									<Route exact path='/login' component={Login} />
 									<Route path='*' component={NotFound} />
 								</Switch>
-								<div className='push'></div>
 								<Footer />
 							</StickyContainer>
 						</div>
