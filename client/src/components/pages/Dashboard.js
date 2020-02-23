@@ -6,7 +6,7 @@ import PostForm from '../posts/PostForm';
 import AddPostModal from '../posts/AddPostModal';
 import AuthContext from '../../context/auth/authContext';
 
-const Dashboard = () => {
+const Dashboard = ({ postSection = 'dashboard' }) => {
 	const authContext = useContext(AuthContext);
 	useEffect(() => {
 		authContext.loadUser();
@@ -17,7 +17,9 @@ const Dashboard = () => {
 		<div className='container cardWrapper'>
 			<AddBtn />
 			<PostFilter />
-			<Posts postSection='dashboard' />
+			<ul className='collection'>
+				<Posts postSection={postSection} />
+			</ul>
 		</div>
 	);
 };
