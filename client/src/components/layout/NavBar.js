@@ -8,7 +8,7 @@ import '../../public/lohas-logo-white.svg';
 const NavBar = () => {
 	const authContext = useContext(AuthContext);
 	const postContext = useContext(PostContext);
-	const { isAuthenticated, logout } = authContext;
+	const { isAuthenticated, token, logout } = authContext;
 	const { clearPosts } = postContext;
 
 	const onLogout = () => {
@@ -57,7 +57,7 @@ const NavBar = () => {
 					{isAuthenticated ? authLinks : null}
 				</ul>
 			</div>
-			{isAuthenticated !== null && <AdminMenu />}
+			{isAuthenticated !== null && token && <AdminMenu />}
 		</Fragment>
 	);
 };
