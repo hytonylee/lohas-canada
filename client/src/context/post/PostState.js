@@ -55,8 +55,9 @@ const PostState = props => {
 		} catch (err) {
 			dispatch({
 				type: POST_ERROR,
-				error: err.response.msg
+				error: err
 			});
+			console.log('this is err: ' + err);
 		}
 	};
 

@@ -1,15 +1,24 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import PostItem from './PostItem';
+import PostListItem from './PostListItem';
 import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Posts = ({ postSection }) => {
 	const postContext = useContext(PostContext);
-	const { posts, filtered, loading, getPostsBySection } = postContext;
+	const {
+		posts,
+		filtered,
+		loading,
+		getAllPosts,
+		getPostsBySection
+	} = postContext;
 
 	useEffect(() => {
-		getPostsBySection(postSection);
+		postSection === 'dashboard'
+			? getAllPosts()
+			: getPostsBySection(postSection);
 		// eslint-disable-next-line
 	}, []);
 
@@ -24,12 +33,20 @@ const Posts = ({ postSection }) => {
 					{filtered !== null
 						? filtered.map(post => (
 								<CSSTransition key={post._id} timeout={500} className='item'>
-									<PostItem post={post} />
+									{postSection === 'dashboard' ? (
+										<PostListItem post={post} />
+									) : (
+										<PostItem post={post} />
+									)}
 								</CSSTransition>
 						  ))
 						: posts.map(post => (
 								<CSSTransition key={post._id} timeout={500} className='item'>
-									<PostItem post={post} />
+									{postSection === 'dashboard' ? (
+										<PostListItem post={post} />
+									) : (
+										<PostItem post={post} />
+									)}
 								</CSSTransition>
 						  ))}
 				</TransitionGroup>

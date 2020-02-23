@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import AddBtn from '../layout/AddBtn';
-import AdminPosts from '../posts/AdminPosts';
 import Posts from '../posts/Posts';
 import PostFilter from '../posts/PostFilter';
 import PostForm from '../posts/PostForm';
@@ -18,7 +17,7 @@ const Dashboard = () => {
 		<div className='container cardWrapper'>
 			<AddBtn />
 			<PostFilter />
-			<AdminPosts />
+			<Posts postSection='dashboard' />
 		</div>
 	);
 };
