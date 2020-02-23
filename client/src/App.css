@@ -58,10 +58,12 @@ img {
 
 /* Utilities */
 .container {
-	max-width: 1100px;
-	margin: auto;
-	overflow: hidden;
-	padding: 0 2rem;
+	width: 95% !important;
+	/* max-width: 1100px !important; */
+	/* margin: auto !important; */
+	margin: 0 5rem 0 3rem !important;
+	overflow: hidden !important;
+	padding: 0 2rem !important;
 }
 
 /* Text Styles*/
@@ -148,6 +150,7 @@ img {
 }
 
 .card-post {
+	width: 100%;
 	border-radius: 4px;
 	border: #ccc 1px dotted;
 	margin: 0.7rem 0;
@@ -167,8 +170,8 @@ img {
 }
 
 .card-container {
-	max-width: 1100px;
-	margin: auto;
+	width: 100%;
+	/* margin: auto; */
 	overflow: hidden;
 	padding: 0 2rem 2rem 2rem;
 }
@@ -327,7 +330,7 @@ img {
 	color: #333;
 }
 
-/* .btn-dark,
+.btn-dark,
 .bg-dark,
 .badge-dark,
 .alert-dark {
@@ -371,7 +374,7 @@ img {
 
 .round-img {
 	border-radius: 50%;
-} */
+}
 
 /* Forms */
 /* label focus color */
@@ -527,18 +530,6 @@ table th {
 	margin: 0 0.25rem;
 }
 
-/* Modal */
-
-.modal {
-	position: fixed;
-	top: 64px;
-	padding: 24px;
-	left: 64px;
-	background-color: white;
-	border: 1px solid grey;
-	border-radius: 3px;
-}
-
 /* Footer */
 
 .footerWrapper {
@@ -547,6 +538,12 @@ table th {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
+	.container {
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
 	/* Navbar */
 	.navbar {
 		display: block;

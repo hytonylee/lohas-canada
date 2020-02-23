@@ -14,7 +14,7 @@ const Dashboard = () => {
 	}, []);
 
 	return (
-		<div className='container cardWrapper'>
+		<div className='container'>
 			<AddBtn />
 			<PostFilter />
 			<Posts postSection='dashboard' />

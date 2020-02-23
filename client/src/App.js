@@ -40,27 +40,25 @@ const App = () => {
 			<PostState>
 				<AlertState>
 					<Router>
-						<div className='content'>
-							<StickyContainer>
-								<Sticky>
-									{({ style }) => (
-										<header style={style}>
-											<NavBar />
-										</header>
-									)}
-								</Sticky>
-								<Switch>
-									<PrivateRoute exact path='/dashboard' component={Dashboard} />
-									<Route exact path='/' component={Home} />
-									<Route exact path='/product' component={Product} />
-									<Route exact path='/blog' component={Blog} />
-									{/* <Route exact path='/shop' component={Shop} /> */}
-									<Route exact path='/login' component={Login} />
-									<Route path='*' component={NotFound} />
-								</Switch>
-								<Footer />
-							</StickyContainer>
-						</div>
+						<StickyContainer>
+							<Sticky>
+								{({ style }) => (
+									<header style={style}>
+										<NavBar />
+									</header>
+								)}
+							</Sticky>
+							<Switch>
+								<PrivateRoute exact path='/dashboard' component={Dashboard} />
+								<Route exact path='/' component={Home} />
+								<Route exact path='/product' component={Product} />
+								<Route exact path='/blog' component={Blog} />
+								{/* <Route exact path='/shop' component={Shop} /> */}
+								<Route exact path='/login' component={Login} />
+								<Route path='*' component={NotFound} />
+							</Switch>
+							<Footer />
+						</StickyContainer>
 					</Router>
 				</AlertState>
 			</PostState>
