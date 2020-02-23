@@ -31,19 +31,19 @@ const Posts = ({ postSection }) => {
 			{posts !== null && !loading ? (
 				<TransitionGroup>
 					{filtered !== null
-						? filtered.map(post => (
+						? filtered.map((post, index) => (
 								<CSSTransition key={post._id} timeout={500} className='item'>
 									{postSection === 'dashboard' ? (
-										<PostListItem post={post} />
+										<PostListItem post={post} index={index + 1} />
 									) : (
 										<PostItem post={post} />
 									)}
 								</CSSTransition>
 						  ))
-						: posts.map(post => (
+						: posts.map((post, index) => (
 								<CSSTransition key={post._id} timeout={500} className='item'>
 									{postSection === 'dashboard' ? (
-										<PostListItem post={post} />
+										<PostListItem post={post} index={index + 1} />
 									) : (
 										<PostItem post={post} />
 									)}
