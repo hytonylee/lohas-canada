@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useContext, useEffect } from 'react';
-import Display from '../layout/Display';
 import AlertContext from '../../context/alert/alertContext';
 import AuthContext from '../../context/auth/authContext';
 
@@ -51,41 +50,41 @@ const Login = props => {
 
 	return (
 		<Fragment>
-			<Display />
-			<div className='container p-1'>
-				<div className='form-container'>
-					<h1>
-						<span className='text-primary'>Dashboard Login</span>
-					</h1>
-					<form onSubmit={onSubmit}>
-						<div className='form-group'>
-							<label htmlFor='email'>Email Address</label>
+			<div className='container'>
+				<div className='loginWrapper '>
+					<div className='form p-2'>
+						<h3>Dashboard Login</h3>
+						<form onSubmit={onSubmit}>
+							<div className='form-group'>
+								<label htmlFor='email'>Email Address</label>
+								<input
+									type='email'
+									name='email'
+									value={email}
+									autoComplete='email'
+									onChange={onChange}
+									required
+								/>
+							</div>
+							<div className='form-group'>
+								<label htmlFor='password'>Password</label>
+								<input
+									type='password'
+									name='password'
+									value={password}
+									autoComplete='password'
+									onChange={onChange}
+									required
+								/>
+							</div>
 							<input
-								type='email'
-								name='email'
-								value={email}
-								autoComplete='email'
-								onChange={onChange}
-								required
+								type='submit'
+								value='Login'
+								className='btn btn-blue btn-block'
+								style={{ paddingLeft: '2rem' }}
 							/>
-						</div>
-						<div className='form-group'>
-							<label htmlFor='password'>Password</label>
-							<input
-								type='password'
-								name='password'
-								value={password}
-								autoComplete='password'
-								onChange={onChange}
-								required
-							/>
-						</div>
-						<input
-							type='submit'
-							value='Login'
-							className='btn btn-primary btn-block'
-						/>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</Fragment>
