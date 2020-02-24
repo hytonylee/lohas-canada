@@ -71,10 +71,17 @@ const Footer = () => {
 					</div>
 					<div className='col l7 s6'></div>
 					<div className='col l3 s12'>
-						<a href='#!'>Copyright @ Lohas Farm Canada</a>
+						<a href='#!'>© Lohas Farm Canada</a>
 					</div>
 				</div>
-				<div className='footer-copyright'></div>
+				<div
+					className='footer-copyright'
+					style={{
+						minHeight: 'initial',
+						paddingTop: '0px',
+						paddingBottom: '0px'
+					}}
+				></div>
 			</div>
 		</footer>
 	);
