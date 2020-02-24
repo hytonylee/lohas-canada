@@ -30,7 +30,7 @@ const NavBar = () => {
 
 	return (
 		<Fragment>
-			<div className='navbar bg-blue'>
+			<div className='navbar bg-blue' style={{ paddingLeft: '0px' }}>
 				<h1 style={{ margin: 0 }}>
 					<Link to='/'>
 						<img

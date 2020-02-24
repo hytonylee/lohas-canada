@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import AddBtn from '../layout/AddBtn';
 import Posts from '../posts/Posts';
 import PostFilter from '../posts/PostFilter';
 import PostForm from '../posts/PostForm';
@@ -18,7 +17,6 @@ const Dashboard = () => {
 
 	return (
 		<div className='container'>
-			<AddBtn />
 			<PostFilter />
 			<AddPostModal />
 			<Posts postSection='dashboard' />
