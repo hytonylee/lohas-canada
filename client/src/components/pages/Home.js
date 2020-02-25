@@ -1,42 +1,41 @@
-import React, { Fragment } from 'react';
-// import Display from '../layout/Display';
+import React, { Fragment, useEffect, useContext } from 'react';
 import Posts from '../posts/Posts';
+import PostContext from '../../context/post/postContext';
+import SlideItem from '../layout/SlideItem';
+import PreLoader from '../layout/PreLoader';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 const Home = () => {
+	const postContext = useContext(PostContext);
+	const { slides, getPostSlide, loading } = postContext;
+
+	useEffect(() => {
+		getPostSlide();
+		// eslint-disable-next-line
+		let slider = document.querySelectorAll('.slider');
+		let options = {
+			indicators: true,
+			height: 250,
+			inDuration: 300,
+			outDuration: 300
+			// hover: false // Activate on hover
+			// coverTrigger: false // Displays dropdown below the button
+		};
+		M.Slider.init(slider, options);
+	}, []);
+
 	return (
 		<Fragment>
-			{/* <Display /> */}
 			<div className='slider slideWrapper'>
 				<ul className='slides'>
-					<li>
-						<img src='https://lorempixel.com/580/250/nature/1' />
-						<div className='caption center-align'>
-							<h3>This is our big Tagline!</h3>
-							<h5 className='light grey-text text-lighten-3'>
-								Here is our small slogan.
-							</h5>
-						</div>
-					</li>
-					<li>
-						<img src='https://lorempixel.com/580/250/nature/2' />
-						<div className='caption center-align'>
-							<h3>This is our big Tagline!</h3>
-							<h5 className='light grey-text text-lighten-3'>
-								Here is our small slogan.
-							</h5>
-						</div>
-					</li>
-					<li>
-						<img src='https://lorempixel.com/580/250/nature/3' />
-						<div className='caption center-align'>
-							<h3>This is our big Tagline!</h3>
-							<h5 className='light grey-text text-lighten-3'>
-								Here is our small slogan.
-							</h5>
-						</div>
-					</li>
+					{slides !== null && !loading ? (
+						slides.map(slide => <SlideItem slide={slide} key={slide.id} />)
+					) : (
+						<PreLoader />
+					)}
 				</ul>
 			</div>
+			<div className='divider' style={{ marginBottom: '10px' }}></div>
 			<div className='container'>
 				<Posts postSection='home' />
 			</div>

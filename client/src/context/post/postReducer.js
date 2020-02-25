@@ -25,7 +25,7 @@ export default (state, action) => {
 		case GET_POSTS_BY_SLIDE:
 			return {
 				...state,
-				posts: action.payload,
+				slides: action.payload,
 				loading: false
 			};
 		case GET_POSTS_BY_SECTION:

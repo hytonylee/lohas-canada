@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
+import PropTypes from 'prop-types';
 
 // Require Editor JS files.
 import 'froala-editor/js/froala_editor.pkgd.min.js';
@@ -148,15 +149,18 @@ const AddPostModal = () => {
 								// className='materialize-textarea'
 								onChange={onChange}
 							/> */}
-							{/* <textarea
+
+							<label htmlFor='content' className='active'>
+								Add Post Content
+							</label>
+							<textarea
 								type='text'
 								name='content'
 								value={content}
 								id='textarea1'
 								className='materialize-textarea'
 								onChange={onChange}
-							></textarea> */}
-							{/* <label htmlFor='content'>Input Post Content</label> */}
+							></textarea>
 						</div>
 					</div>
 				</div>
@@ -172,6 +176,14 @@ const AddPostModal = () => {
 			</div>
 		</div>
 	);
+};
+
+AddPostModal.proptTypes = {
+	post: PropTypes.object.isRequired,
+	addPost: PropTypes.func,
+	updatePost: PropTypes.func,
+	clearCurrent: PropTypes.object,
+	current: PropTypes.string
 };
 
 export default AddPostModal;

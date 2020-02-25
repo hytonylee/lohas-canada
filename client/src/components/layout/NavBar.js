@@ -49,11 +49,11 @@ const NavBar = () => {
 					<a href='mailto:name@email.com?Subject=Inquiry%20from%20the%20website'>
 						Contact
 					</a>
-					<Link to='/shop'>
+					{/* <Link to='/shop'>
 						<li>
 							<i className='fas fa-shopping-cart'></i>
 						</li>
-					</Link>
+					</Link> */}
 					{isAuthenticated ? authLinks : null}
 				</ul>
 			</div>

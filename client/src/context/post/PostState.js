@@ -22,6 +22,7 @@ const PostState = props => {
 	const initialState = {
 		postSection: 'home',
 		posts: null,
+		slides: null,
 		current: null,
 		filtered: null
 	};
@@ -40,6 +41,22 @@ const PostState = props => {
 			dispatch({
 				type: POST_ERROR,
 				error: err.response.msg
+			});
+		}
+	};
+
+	// Get Posts (Slides / Public)
+	const getPostSlide = async () => {
+		try {
+			const res = await axios.get('/api/posts/slide');
+			dispatch({
+				type: GET_POSTS_BY_SLIDE,
+				payload: res.data
+			});
+		} catch (err) {
+			dispatch({
+				type: POST_ERROR,
+				error: err
 			});
 		}
 	};
@@ -185,10 +202,12 @@ const PostState = props => {
 			value={{
 				postSection: state.postSection,
 				posts: state.posts,
+				slides: state.slides,
 				current: state.current,
 				filtered: state.filtered,
 				error: state.error,
 				getPosts,
+				getPostSlide,
 				getPostsBySection,
 				getAllPosts,
 				addPost,
