@@ -39,7 +39,7 @@ const PostListItem = ({ post, index }) => {
 				<div className='col l2 S2 grid-3'>
 					{' '}
 					<a
-						href='#edit-post-moda'
+						href='#edit-post-modal'
 						className='modal-trigger'
 						onClick={() => setCurrent(post)}
 					>
