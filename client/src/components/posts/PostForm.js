@@ -11,7 +11,7 @@ const PostForm = () => {
 		} else {
 			setPost({
 				title: '',
-				homeSlide: false,
+				slide: false,
 				section: '',
 				imgUrl: '',
 				content: '',
@@ -23,13 +23,13 @@ const PostForm = () => {
 	const [post, setPost] = useState({
 		title: '',
 		section: '',
-		homeSlide: false,
+		slide: false,
 		imgUrl: '',
 		content: '',
 		status: 'draft'
 	});
 
-	const { title, section, imgUrl, homeSlide, content, status } = post;
+	const { title, section, imgUrl, slide, content, status } = post;
 
 	const onChange = e => {
 		setPost({

@@ -34,6 +34,16 @@ const App = () => {
 	useEffect(() => {
 		// Initialize Materialize JS
 		M.AutoInit();
+		let slider = document.querySelectorAll('.slider');
+		let options = {
+			indicators: true,
+			height: 250,
+			inDuration: 300,
+			outDuration: 300
+			// hover: false // Activate on hover
+			// coverTrigger: false // Displays dropdown below the button
+		};
+		M.Slider.init(slider, options);
 	});
 
 	return (

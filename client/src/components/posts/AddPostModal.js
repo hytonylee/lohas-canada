@@ -21,7 +21,7 @@ const AddPostModal = () => {
 		} else {
 			setPost({
 				title: '',
-				homeSlide: false,
+				slide: false,
 				section: '',
 				imgUrl: '',
 				content: '',
@@ -33,13 +33,13 @@ const AddPostModal = () => {
 	const [post, setPost] = useState({
 		title: '',
 		section: '',
-		homeSlide: false,
+		slide: false,
 		imgUrl: '',
 		current: '',
 		status: 'draft;'
 	});
 
-	const { title, section, imgUrl, homeSlide, content, status } = post;
+	const { title, section, imgUrl, slide, content, status } = post;
 
 	const onChange = e => {
 		setPost({
@@ -97,8 +97,8 @@ const AddPostModal = () => {
 						<label>
 							<input
 								type='checkbox'
-								name='homeSlide'
-								value={!homeSlide}
+								name='slide'
+								value={!slide}
 								onChange={onChange}
 							/>
 							<span> Set post in Homepage Slider: </span>

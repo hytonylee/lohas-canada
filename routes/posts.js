@@ -41,7 +41,7 @@ router.get('/section/:query', async (req, res) => {
 // @access  Public
 router.get('/slide/', async (req, res) => {
 	try {
-		const posts = await Post.find({ homeSlide: true }).sort({
+		const posts = await Post.find({ slide: true }).sort({
 			date: -1
 		});
 		res.json(posts);
@@ -86,13 +86,13 @@ router.post(
 			return res.status(400).json({ errors: errors.array() });
 		}
 
-		const { title, homeSlide, section, status, imgUrl, content } = req.body;
+		const { title, slide, section, status, imgUrl, content } = req.body;
 
 		try {
 			const newPost = new Post({
 				title,
 				section,
-				homeSlide,
+				slide,
 				status,
 				imgUrl,
 				content,
@@ -112,11 +112,11 @@ router.post(
 // @desc		Update a post
 // @access	Private
 router.put('/dashboard/:id', auth, async (req, res) => {
-	const { title, section, homeSlide, content, status, imgUrl } = req.body;
+	const { title, section, slide, content, status, imgUrl } = req.body;
 
 	const postFields = {};
 	if (title) postFields.title = title;
-	if (homeSlide) postFields.homeSlide = homeSlide;
+	if (slide) postFields.slide = slide;
 	if (section) postFields.section = section;
 	if (imgUrl) postFields.imgUrl = imgUrl;
 	if (content) postFields.content = content;

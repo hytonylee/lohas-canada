@@ -13,7 +13,7 @@ const PostSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	homeSlide: {
+	slide: {
 		type: Boolean,
 		required: true,
 		default: false
