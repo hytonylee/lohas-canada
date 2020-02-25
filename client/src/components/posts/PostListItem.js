@@ -29,18 +29,18 @@ const PostListItem = ({ post, index }) => {
 					paddingLeft: '1rem'
 				}}
 			>
-				<div class='col l2 S2'>
+				<div className='col l2 S2'>
 					<span>
 						{index}.<b style={{ paddingLeft: '2px' }}>{title}</b>
 					</span>
 				</div>
-				<div class='col l2 S2'>
+				<div className='col l2 S2'>
 					<b>Section: </b> {section}
 				</div>
-				<div class='col l2 S2'>
+				<div className='col l2 S2'>
 					<b>Status: </b> {status}
 				</div>
-				<div class='col l2 S2 grid-3'>
+				<div className='col l2 S2 grid-3'>
 					<a onClick={() => setCurrent(post)}>
 						<i className='material-icons grey-text'>edit</i>
 						{` `}
