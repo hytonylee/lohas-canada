@@ -119,7 +119,7 @@ const PostState = props => {
 		} catch (err) {
 			dispatch({
 				type: POST_ERROR,
-				payload: err.response.msg
+				payload: err.response
 			});
 		}
 	};
