@@ -3,7 +3,7 @@ import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
-	GET_POST,
+	GET_ONE_POST,
 	GET_POSTS,
 	GET_POSTS_BY_SLIDE,
 	GET_POSTS_BY_SECTION,
@@ -31,11 +31,11 @@ const PostState = props => {
 	const [state, dispatch] = useReducer(postReducer, initialState);
 
 	// Get Single Post (Public)
-	const getPost = async id => {
+	const getOnePost = async id => {
 		try {
 			const res = await axios.get(`/api/posts/post/${id}`);
 			dispatch({
-				type: GET_POST,
+				type: GET_ONE_POST,
 				payload: res.data
 			});
 		} catch (err) {
@@ -218,12 +218,13 @@ const PostState = props => {
 		<PostContext.Provider
 			value={{
 				postSection: state.postSection,
+				post: state.post,
 				posts: state.posts,
 				slides: state.slides,
 				current: state.current,
 				filtered: state.filtered,
 				error: state.error,
-				getPost,
+				getOnePost,
 				getPosts,
 				getPostSlide,
 				getPostsBySection,

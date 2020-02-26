@@ -28,6 +28,7 @@ const Posts = ({ postSection }) => {
 
 	return (
 		<Fragment>
+			{console.log(posts)}
 			{posts !== null && !loading ? (
 				<TransitionGroup>
 					{filtered !== null

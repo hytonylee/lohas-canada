@@ -1,5 +1,5 @@
 // Post
-export const GET_POST = 'GET_POST';
+export const GET_ONE_POST = 'GET_POST';
 export const GET_POSTS = 'GET_POSTS';
 export const GET_POSTS_BY_SLIDE = ' GET_POSTS_BY_SLIDE';
 export const GET_POSTS_BY_SECTION = 'GET_POSTS_BY_SECTION';

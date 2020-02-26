@@ -1,5 +1,5 @@
 import {
-	GET_POST,
+	GET_ONE_POST,
 	GET_POSTS,
 	GET_POSTS_BY_SECTION,
 	GET_POSTS_BY_SLIDE,
@@ -17,10 +17,10 @@ import {
 
 export default (state, action) => {
 	switch (action.type) {
-		case GET_POST:
+		case GET_ONE_POST:
 			return {
 				...state,
-				posts: action.payload,
+				post: action.payload[0],
 				loading: false
 			};
 		case GET_POSTS:

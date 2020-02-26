@@ -1,32 +1,45 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
+import PreLoader from '../layout/PreLoader';
 
-const Post = ({ match, location }) => {
+const Post = ({ match }) => {
 	const postContext = useContext(PostContext);
 	const {
 		params: { id }
 	} = match;
-	const { posts, getPost } = postContext;
+	const { post, getOnePost, loading } = postContext;
+	const { section, imgUrl, content, title, date } = JSON.stringify(post);
 
 	useEffect(() => {
-		console.log(id);
-		console.log(location);
-		getPost(id);
-		console.log(posts);
+		getOnePost(id);
 	}, []);
 
 	return (
 		<Fragment>
-			{/* <img src={`${imgUrl}`} style={{ minHeight: '100vh', minWidth: '100%' }} />
-			<div className='container' style={{ backgroundColor: 'white' }} key={id}>
-				<h1 className='bg-blue'>{title}</h1>
-				<h6>Posted on {date.slice(0, 10)}</h6>
-				<div className='divider'></div>
-				<div>
-					<p>{content}</p>
-				</div>
-			</div> */}
-			Hello World!
+			{console.log(section)}
+			{post !== null && !loading ? (
+				<>
+					{/* <img
+						src={`${post.imgUrl}`}
+						style={{ minHeight: '100vh', minWidth: '100%' }}
+					/>
+					<div
+						className='container'
+						style={{ backgroundColor: 'white' }}
+						key={post.id}
+					>
+						<h1 className='bg-blue'>{post.title}</h1>
+						<h6>Posted on {post.date.slice(0, 10)}</h6>
+						<div className='divider'></div>
+						<div>
+							<p>{post.content}</p>
+						</div>
+					</div> */}
+					Hello World!!
+				</>
+			) : (
+				<PreLoader />
+			)}
 		</Fragment>
 	);
 };
