@@ -19,6 +19,21 @@ router.get('/', async (req, res) => {
 	}
 });
 
+// @router	Get api/:id
+// @desc		Get a post
+// @access	Public
+router.get('/post/:query', async (req, res) => {
+	let query = req.params.query;
+
+	try {
+		const post = await Post.find({ _id: query, status: 'published' });
+		res.json(post);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error: Unable loading post data.');
+	}
+});
+
 // @route   Get api/posts?section
 // @desc    Get posts based on page section
 // @access  Public

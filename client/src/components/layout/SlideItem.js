@@ -4,7 +4,7 @@ const SlideItem = ({ slide }) => {
 	const { title, content, imgUrl } = slide;
 	return (
 		<li>
-			<img src={`${imgUrl}`} />
+			<img src={`${imgUrl}`} alt={`${title}-img`} />
 			<div className='caption center-align'>
 				<h3>{title}</h3>
 				<h5 className='light grey-text text-lighten-3'>
