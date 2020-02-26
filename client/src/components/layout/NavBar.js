@@ -34,7 +34,7 @@ const NavBar = () => {
 				<h1 style={{ margin: 0 }}>
 					<Link to='/'>
 						<img
-							src='lohas-logo-white.svg'
+							src={process.env.PUBLIC_URL + '/lohas-logo-white.svg'}
 							alt='lohas-white'
 							style={{ height: '8vh' }}
 						/>

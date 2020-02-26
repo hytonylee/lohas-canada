@@ -1,7 +1,7 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
 
-const Post = ({ match }) => {
+const Post = ({ match, location }) => {
 	const postContext = useContext(PostContext);
 	const {
 		params: { id }
@@ -9,6 +9,8 @@ const Post = ({ match }) => {
 	const { posts, getPost } = postContext;
 
 	useEffect(() => {
+		console.log(id);
+		console.log(location);
 		getPost(id);
 		console.log(posts);
 	}, []);
