@@ -26,9 +26,11 @@ router.get('/section/:query', async (req, res) => {
 	let query = req.params.query;
 
 	try {
-		const posts = await Post.find({ section: query }).sort({
-			date: -1
-		});
+		const posts = await Post.find({ section: query, status: 'published' }).sort(
+			{
+				date: -1
+			}
+		);
 		res.json(posts);
 	} catch (err) {
 		console.error(err.message);
@@ -41,7 +43,7 @@ router.get('/section/:query', async (req, res) => {
 // @access  Public
 router.get('/slide/', async (req, res) => {
 	try {
-		const posts = await Post.find({ slide: true }).sort({
+		const posts = await Post.find({ slide: true, status: 'published' }).sort({
 			date: -1
 		});
 		res.json(posts);
