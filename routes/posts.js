@@ -19,6 +19,19 @@ router.get('/', async (req, res) => {
 	}
 });
 
+// @route   Get api/posts/id
+// @desc    Get all published posts
+// @access  Public
+router.get('/:id', async (req, res) => {
+	try {
+		const post = await Post.findById(req.params.id);
+		res.json(post);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error!');
+	}
+});
+
 // @route   Get api/posts?section
 // @desc    Get posts based on page section
 // @access  Public
