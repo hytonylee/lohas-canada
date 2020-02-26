@@ -218,7 +218,6 @@ const PostState = props => {
 		<PostContext.Provider
 			value={{
 				postSection: state.postSection,
-				post: state.post,
 				posts: state.posts,
 				slides: state.slides,
 				current: state.current,

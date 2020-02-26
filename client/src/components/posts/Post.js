@@ -7,8 +7,7 @@ const Post = ({ match }) => {
 	const {
 		params: { id }
 	} = match;
-	const { post, getOnePost, loading } = postContext;
-	const { section, imgUrl, content, title, date } = JSON.stringify(post);
+	const { posts, getOnePost, loading } = postContext;
 
 	useEffect(() => {
 		getOnePost(id);
@@ -16,27 +15,27 @@ const Post = ({ match }) => {
 
 	return (
 		<Fragment>
-			{console.log(section)}
-			{post !== null && !loading ? (
-				<>
-					{/* <img
-						src={`${post.imgUrl}`}
-						style={{ minHeight: '100vh', minWidth: '100%' }}
-					/>
-					<div
-						className='container'
-						style={{ backgroundColor: 'white' }}
-						key={post.id}
-					>
-						<h1 className='bg-blue'>{post.title}</h1>
-						<h6>Posted on {post.date.slice(0, 10)}</h6>
-						<div className='divider'></div>
-						<div>
-							<p>{post.content}</p>
+			{posts !== null && !loading ? (
+				posts.map(post => (
+					<>
+						<img
+							src={`${post.imgUrl}`}
+							style={{ minHeight: '100vh', minWidth: '100%' }}
+						/>
+						<div
+							className='container'
+							style={{ backgroundColor: 'white' }}
+							key={id}
+						>
+							<h1 className='bg-blue'>{post.title}</h1>
+							<h6>Posted on {post.date.slice(0, 10)}</h6>
+							<div className='divider'></div>
+							<div>
+								<p>{post.content}</p>
+							</div>
 						</div>
-					</div> */}
-					Hello World!!
-				</>
+					</>
+				))
 			) : (
 				<PreLoader />
 			)}

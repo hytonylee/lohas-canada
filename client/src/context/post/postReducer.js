@@ -20,7 +20,7 @@ export default (state, action) => {
 		case GET_ONE_POST:
 			return {
 				...state,
-				post: action.payload[0],
+				posts: action.payload,
 				loading: false
 			};
 		case GET_POSTS:
