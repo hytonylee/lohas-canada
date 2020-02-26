@@ -66,7 +66,7 @@ const App = () => {
 								<Route exact path='/blog' component={Blog} />
 								{/* <Route exact path='/shop' component={Shop} /> */}
 								<Route exact path='/login' component={Login} />
-								<Route path='*' component={NotFound} />
+								{/* <Route path='*' component={NotFound} /> */}
 							</Switch>
 							<AddPostModal />
 							<Footer />
