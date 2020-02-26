@@ -110,4 +110,19 @@ router.put('/dashboard/:id', auth, async (req, res) => {
 	}
 });
 
+// @route		GET api/users/dashboard/
+// @desc		Get all user
+// @access	Private
+router.get('/dashboard/', auth, async (req, res) => {
+	try {
+		const users = await User.find().sort({
+			date: -1
+		});
+		res.json(users);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server Error: Unable loading post data.');
+	}
+});
+
 module.exports = router;

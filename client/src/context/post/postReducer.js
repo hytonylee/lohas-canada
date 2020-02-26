@@ -16,6 +16,12 @@ import {
 
 export default (state, action) => {
 	switch (action.type) {
+		case GET_POST:
+			return {
+				...state,
+				posts: action.payload,
+				loading: false
+			};
 		case GET_POSTS:
 			return {
 				...state,

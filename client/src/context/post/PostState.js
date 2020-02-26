@@ -3,6 +3,7 @@ import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
+	GET_POST,
 	GET_POSTS,
 	GET_POSTS_BY_SLIDE,
 	GET_POSTS_BY_SECTION,
@@ -28,6 +29,22 @@ const PostState = props => {
 	};
 
 	const [state, dispatch] = useReducer(postReducer, initialState);
+
+	// Get Single Post (Public)
+	const getPost = async id => {
+		try {
+			const res = await axios.get(`/api/posts/post/${id}`);
+			dispatch({
+				type: GET_POST,
+				payload: res.data
+			});
+		} catch (err) {
+			dispatch({
+				type: POST_ERROR,
+				error: err.response
+			});
+		}
+	};
 
 	// Get Posts (Public)
 	const getPosts = async () => {
@@ -206,6 +223,7 @@ const PostState = props => {
 				current: state.current,
 				filtered: state.filtered,
 				error: state.error,
+				getPost,
 				getPosts,
 				getPostSlide,
 				getPostsBySection,
