@@ -495,8 +495,8 @@ table th {
 /* Slides */
 .slideWrapper {
 	z-index: -10;
-	position: absolute;
-	top: 0;
+	/* position: absolute;
+	top: 0; */
 }
 
 /* Sub-Menu */

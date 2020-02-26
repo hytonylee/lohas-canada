@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import Posts from '../posts/Posts';
 import PostFilter from '../posts/PostFilter';
-import PostForm from '../posts/PostForm';
 import AddPostModal from '../posts/AddPostModal';
 import AuthContext from '../../context/auth/authContext';
 
