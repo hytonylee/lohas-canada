@@ -56,6 +56,9 @@ img {
 	width: 100%;
 }
 
+.imgWrapper {
+}
+
 /* Utilities */
 .container {
 	width: 95% !important;
@@ -531,6 +534,12 @@ table th {
 /* Mobile Styles */
 @media (max-width: 700px) {
 	.container {
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	.imgWrapper {
 		width: 100% !important;
 		margin-left: 0 !important;
 		margin-right: 0 !important;

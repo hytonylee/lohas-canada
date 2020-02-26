@@ -17,24 +17,33 @@ const Post = ({ match }) => {
 		<Fragment>
 			{posts !== null && !loading ? (
 				posts.map(post => (
-					<>
-						<img
-							src={`${post.imgUrl}`}
-							style={{ minHeight: '100vh', minWidth: '100%' }}
-						/>
+					<div
+						className='imgWrapper'
+						style={{
+							backgroundImage: `url(${post.imgUrl})`,
+							backgroundRepeat: 'no-repeat',
+							backgroundSize: 'cover',
+							height: '100vh',
+							width: '100vw',
+							paddingTop: '50px'
+						}}
+					>
 						<div
 							className='container'
-							style={{ backgroundColor: 'white' }}
+							style={{
+								backgroundColor: 'white',
+								borderRadius: '4px',
+								paddingBottom: '100px'
+							}}
 							key={id}
 						>
-							<h1 className='bg-blue'>{post.title}</h1>
+							<h3>{post.title}</h3>
 							<h6>Posted on {post.date.slice(0, 10)}</h6>
 							<div className='divider'></div>
-							<div>
-								<p>{post.content}</p>
-							</div>
+
+							<p style={{ marginBottom: '20px' }}>{post.content}</p>
 						</div>
-					</>
+					</div>
 				))
 			) : (
 				<PreLoader />
