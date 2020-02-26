@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from './defaultImage.jpg';
-import Post from './Post';
 
 const PostItem = ({ post }) => {
 	const { _id, title, content, imgUrl, date } = post;
@@ -14,8 +13,7 @@ const PostItem = ({ post }) => {
 			<div className='card-container'>
 				<h6>Posted on {date.slice(0, 10)}</h6>
 				<p>
-					{content.slice(0, 20)}{' '}
-					<Link to={`/posts/post/${_id}`}>Read More...</Link>
+					{content.slice(0, 20)} <Link to={`/post/${_id}`}>Read More...</Link>
 				</p>
 			</div>
 		</div>

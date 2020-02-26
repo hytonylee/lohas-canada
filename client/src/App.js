@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 import Home from './components/pages/Home';
 import Product from './components/pages/Product';
 import Blog from './components/pages/Blog';
+import Post from './components/posts/Post';
 import AddPostModal from './components/posts/AddPostModal';
 // import Shop from './components/pages/Shop';
 import NotFound from './components/pages/NotFound';
@@ -66,7 +67,8 @@ const App = () => {
 								<Route exact path='/blog' component={Blog} />
 								{/* <Route exact path='/shop' component={Shop} /> */}
 								<Route exact path='/login' component={Login} />
-								{/* <Route path='*' component={NotFound} /> */}
+								<Route path='/post/:id' component={Post} />
+								<Route path='*' component={NotFound} />
 							</Switch>
 							<AddPostModal />
 							<Footer />

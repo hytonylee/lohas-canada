@@ -1,10 +1,11 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
-import NavBar from '../layout/NavBar';
-import Footer from '../layout/Footer';
 
-const Post = ({ id }) => {
+const Post = ({ match }) => {
 	const postContext = useContext(PostContext);
+	const {
+		params: { id }
+	} = match;
 	const { posts, getPost } = postContext;
 
 	useEffect(() => {
@@ -14,7 +15,6 @@ const Post = ({ id }) => {
 
 	return (
 		<Fragment>
-			<NavBar />
 			{/* <img src={`${imgUrl}`} style={{ minHeight: '100vh', minWidth: '100%' }} />
 			<div className='container' style={{ backgroundColor: 'white' }} key={id}>
 				<h1 className='bg-blue'>{title}</h1>
@@ -22,10 +22,9 @@ const Post = ({ id }) => {
 				<div className='divider'></div>
 				<div>
 					<p>{content}</p>
-				</div> */}
-			Hello World!!
-			{/* </div> */}
-			<Footer />
+				</div>
+			</div> */}
+			Hello World!
 		</Fragment>
 	);
 };
