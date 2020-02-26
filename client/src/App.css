@@ -145,7 +145,7 @@ img {
 
 /* Cards */
 .cardWrapper {
-	z-index: -999;
+	z-index: -10;
 	position: static;
 }
 
@@ -494,7 +494,7 @@ table th {
 
 /* Slides */
 .slideWrapper {
-	z-index: -999;
+	z-index: -10;
 	position: absolute;
 	top: 0;
 }

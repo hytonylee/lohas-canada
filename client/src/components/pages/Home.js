@@ -1,21 +1,14 @@
-import React, { Fragment, useEffect, useContext } from 'react';
-import PostContext from '../../context/post/postContext';
+import React, { Fragment } from 'react';
 import Slider from '../layout/Slider';
 import Posts from '../posts/Posts';
 
 const Home = () => {
-	const postContext = useContext(PostContext);
-	const { slides, getPostSlide } = postContext;
-	useEffect(() => {
-		getPostSlide();
-	}, []);
-
 	return (
 		<Fragment>
-			<Slider slides={slides} />
+			<Slider />
 			<div className='divider' style={{ marginBottom: '10px' }}></div>
-			<div className='container' style={{ zIndex: '-999' }}>
-				<Posts postSection='home' />
+			<div className='container' style={{ zIndex: '-10' }}>
+				<Posts postSection='home' style={{ zIndex: '-10' }} />
 			</div>
 		</Fragment>
 	);
