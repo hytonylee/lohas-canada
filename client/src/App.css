@@ -27,7 +27,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1rem;
 	line-height: 1.6;
-	background-color: #f7f7f7;
+	background-color: #efefef;
 	color: #333;
 }
 
@@ -54,9 +54,6 @@ ul {
 
 img {
 	width: 100%;
-}
-
-.imgWrapper {
 }
 
 /* Utilities */

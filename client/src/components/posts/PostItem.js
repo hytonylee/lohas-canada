@@ -13,7 +13,8 @@ const PostItem = ({ post }) => {
 			<div className='card-container'>
 				<h6>Posted on {date.slice(0, 10)}</h6>
 				<p>
-					{content.slice(0, 20)} <Link to={`/post/${_id}`}>Read More...</Link>
+					{content.slice(0, 100)}{' '}
+					<Link to={`/post/${_id}`}>(Read More...)</Link>
 				</p>
 			</div>
 		</div>
