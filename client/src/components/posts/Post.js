@@ -11,6 +11,7 @@ const Post = ({ match }) => {
 
 	useEffect(() => {
 		getOnePost(id);
+		// eslint-disable-next-line
 	}, []);
 
 	return (
