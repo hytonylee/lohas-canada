@@ -1,59 +1,41 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { useMediaQuery } from '../../utils/useMediaQuery';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from './defaultImage.jpg';
 
 const PostItem = ({ post }) => {
+	const screenSize = useMediaQuery('(min-width: 700px)');
 	const { _id, title, content, imgUrl, date } = post;
 
 	return (
-		<div className='card-post' keys={_id}>
-			<div
-				style={{
-					backgroundImage: `url(${imgUrl})`,
-					backgroundRepeat: 'no-repeat',
-					backgroundSize: 'cover',
-					height: '50vh',
-					width: '100vw',
-					paddingTop: '30px',
-					paddingRight: '6rem'
-				}}
-			>
-				<div className='card-container grid-2' style={styles.contentContainer}>
-					<div>
-						<h3 style={styles.titleText}>{title.toUpperCase()}</h3>
-					</div>
-					<div style={styles.contentText}>
+		<Fragment>
+			<img className='outterCardImage' src={imgUrl} />
+			<div className='card-post' keys={_id}>
+				{/* <div
+					className='cardImage'
+					style={{
+						backgroundImage: screenSize ? `none` : 'url(${imgUrl})'
+					}}
+				> */}
+				<div className='card-container'>
+					<h3>{title.toUpperCase()}</h3>
+					<div className='content-text'>
 						<h6 style={styles.dateText}>Posted on {date.slice(0, 10)}</h6>
 						<p style={styles.pText}>
-							{content.slice(0, 500)}...
+							{content.slice(0, 400)}...
 							{'   '}
 							<Link to={`/post/${_id}`}>(Read More)</Link>
 						</p>
 					</div>
 				</div>
 			</div>
-		</div>
+			{/* </div> */}
+		</Fragment>
 	);
 };
 
 const styles = {
-	contentContainer: {
-		height: '100%'
-	},
-	titleText: {
-		filter: 'invert(1)',
-		color: '#5667b8',
-		mixBlendMode: 'difference'
-	},
-	contentText: {
-		backgroundColor: 'white',
-		padding: '1rem',
-		height: '40vh',
-		width: '50vw',
-		overflow: 'hidden',
-		textOverflow: 'ellipsis'
-	},
 	dateText: {
 		fontSize: '0.8rem'
 	},
