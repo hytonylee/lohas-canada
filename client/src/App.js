@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import ScrollToTop from './utils/ScrollToTop';
 
 // Components
 import NavBar from './components/layout/NavBar';
@@ -52,10 +52,8 @@ const App = () => {
 		<AuthState>
 			<PostState>
 				<AlertState>
-					<Router
-						onUpdate={() => window.scrollTo(0, 0)}
-						history={createBrowserHistory()}
-					>
+					<Router>
+						<ScrollToTop />
 						<StickyContainer>
 							<Sticky>
 								{({ style }) => (
