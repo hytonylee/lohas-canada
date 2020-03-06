@@ -2,15 +2,6 @@ import React, { useContext, useState, useEffect } from 'react';
 import PostContext from '../../context/post/postContext';
 import PropTypes from 'prop-types';
 
-// Require Editor JS files.
-import 'froala-editor/js/froala_editor.pkgd.min.js';
-
-// Require Editor CSS files.
-import 'froala-editor/css/froala_style.min.css';
-import 'froala-editor/css/froala_editor.pkgd.min.css';
-
-import FroalaEditor from 'react-froala-wysiwyg';
-
 const AddPostModal = () => {
 	const postContext = useContext(PostContext);
 	const { addPost, current, clearCurrent, updatePost } = postContext;
@@ -141,15 +132,6 @@ const AddPostModal = () => {
 				<div className='row'>
 					<div className='row'>
 						<div className='input-field col s12'>
-							{/* <FroalaEditor
-								type='text'
-								name='content'
-								value={content}
-								// id='textarea1'
-								// className='materialize-textarea'
-								onChange={onChange}
-							/> */}
-
 							<label htmlFor='content' className='active'>
 								Add Post Content
 							</label>
@@ -158,7 +140,7 @@ const AddPostModal = () => {
 								name='content'
 								value={content}
 								id='textarea1'
-								className='materialize-textarea'
+								// className='materialize-textarea'
 								onChange={onChange}
 							></textarea>
 						</div>
