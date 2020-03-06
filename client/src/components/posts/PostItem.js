@@ -19,15 +19,16 @@ const PostItem = ({ post }) => {
 					paddingRight: '6rem'
 				}}
 			>
-				<div className='card-container grid-2'>
+				<div className='card-container grid-2' style={styles.contentContainer}>
 					<div>
 						<h3 style={styles.titleText}>{title.toUpperCase()}</h3>
 					</div>
 					<div style={styles.contentText}>
 						<h6 style={styles.dateText}>Posted on {date.slice(0, 10)}</h6>
 						<p style={styles.pText}>
-							{content.slice(0, 500)}{' '}
-							<Link to={`/post/${_id}`}>(Read More...)</Link>
+							{content.slice(0, 500)}...
+							{'   '}
+							<Link to={`/post/${_id}`}>(Read More)</Link>
 						</p>
 					</div>
 				</div>
@@ -37,6 +38,9 @@ const PostItem = ({ post }) => {
 };
 
 const styles = {
+	contentContainer: {
+		height: '100%'
+	},
 	titleText: {
 		filter: 'invert(1)',
 		color: '#5667b8',
