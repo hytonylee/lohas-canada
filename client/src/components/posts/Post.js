@@ -18,7 +18,17 @@ const Post = ({ match }) => {
 		<Fragment>
 			{posts !== null && !loading ? (
 				posts.map(post => (
-					<div className='imgWrapper' style={styles.imgWrapper}>
+					<div
+						className='imgWrapper'
+						style={{
+							backgroundImage: `url(${post.imgUrl})`,
+							backgroundRepeat: 'no-repeat',
+							backgroundSize: 'cover',
+							height: '100vh',
+							width: '100vw',
+							paddingTop: '50px'
+						}}
+					>
 						<div className='container' style={styles.contentContainer} key={id}>
 							<h3>{post.title}</h3>
 							<h6>Posted on {post.date.slice(0, 10)}</h6>
@@ -36,14 +46,6 @@ const Post = ({ match }) => {
 };
 
 const styles = {
-	imgWrapper: {
-		backgroundImage: `url(${post.imgUrl})`,
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover',
-		height: '100vh',
-		width: '100vw',
-		paddingTop: '50px'
-	},
 	contentContainer: {
 		backgroundColor: 'white',
 		borderRadius: '4px',
