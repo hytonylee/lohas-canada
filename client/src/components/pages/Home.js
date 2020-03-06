@@ -19,7 +19,8 @@ const styles = {
 		marginBottom: '10px'
 	},
 	container: {
-		zIndex: '-10'
+		zIndex: '-10',
+		borderRadious: '10px'
 	},
 	home: {
 		zIndex: '-10'

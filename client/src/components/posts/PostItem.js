@@ -15,7 +15,7 @@ const PostItem = ({ post }) => {
 					backgroundSize: 'cover',
 					height: '50vh',
 					width: '100vw',
-					paddingTop: '50px',
+					paddingTop: '30px',
 					paddingRight: '6rem'
 				}}
 			>
@@ -25,7 +25,7 @@ const PostItem = ({ post }) => {
 					</div>
 					<div style={styles.contentText}>
 						<h6 style={styles.dateText}>Posted on {date.slice(0, 10)}</h6>
-						<p>
+						<p style={styles.pText}>
 							{content.slice(0, 500)}{' '}
 							<Link to={`/post/${_id}`}>(Read More...)</Link>
 						</p>
@@ -39,10 +39,17 @@ const PostItem = ({ post }) => {
 const styles = {
 	contentText: {
 		backgroundColor: 'white',
-		padding: '1rem'
+		padding: '1rem',
+		height: '40vh',
+		width: '50vw',
+		overflow: 'hidden',
+		textOverflow: 'ellipsis'
 	},
 	dateText: {
 		fontSize: '0.8rem'
+	},
+	pText: {
+		height: '10vh'
 	}
 };
 
