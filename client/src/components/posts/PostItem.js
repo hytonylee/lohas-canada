@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { useMediaQuery } from '../../utils/useMediaQuery';
-import { Link } from 'react-router-dom';
+import { Link, createBrowserHistor } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from './defaultImage.jpg';
 
