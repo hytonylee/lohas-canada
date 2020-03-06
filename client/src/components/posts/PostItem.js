@@ -21,7 +21,7 @@ const PostItem = ({ post }) => {
 			>
 				<div className='card-container grid-2'>
 					<div>
-						<h3>{title.toUpperCase()}</h3>
+						<h3 style={styles.titleText}>{title.toUpperCase()}</h3>
 					</div>
 					<div style={styles.contentText}>
 						<h6 style={styles.dateText}>Posted on {date.slice(0, 10)}</h6>
@@ -37,6 +37,11 @@ const PostItem = ({ post }) => {
 };
 
 const styles = {
+	titleText: {
+		filter: 'invert(1)',
+		color: '#5667b8',
+		mixBlendMode: 'difference'
+	},
 	contentText: {
 		backgroundColor: 'white',
 		padding: '1rem',
