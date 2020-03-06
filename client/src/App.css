@@ -195,16 +195,19 @@ img {
 	height: 100%;
 	/* margin: auto; */
 	overflow: hidden;
-	padding: 0 1rem 1rem 1rem;
+	padding: 1rem 1rem 0rem 1rem !important;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
-	grid-gap: 1rem;
+	grid-gap: 0rem;
 }
 
 .card-container .content-text {
 	background-color: white;
-	border-radius: 4px;
+	height: 9.5rem;
 	padding: 1rem 1rem 0rem 1rem;
+	margin-bottom: 0rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 /* List */
@@ -595,8 +598,8 @@ table th {
 
 	.card-post h3 {
 		color: var(--primary-color);
-		padding: none !important;
-		margin: none !important;
+		padding-left: 1rem;
+		margin-bottom: -50px !important;
 		filter: invert(1);
 		mix-blend-mode: difference;
 	}
@@ -614,8 +617,6 @@ table th {
 		background-color: white;
 		padding: 1rem;
 		height: 40vh;
-		overflow: hidden;
-		text-overflow: ellipsis;
 	}
 
 	.card-container {

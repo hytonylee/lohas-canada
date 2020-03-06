@@ -22,20 +22,27 @@ const PostItem = ({ post }) => {
 					<h3>{title.toUpperCase()}</h3>
 					<div className='content-text'>
 						<h6 style={styles.dateText}>Posted on {date.slice(0, 10)}</h6>
-						<p style={styles.pText}>
-							{content.slice(0, 400)}...
-							{'   '}
-							<Link to={`/post/${_id}`}>(Read More)</Link>
-						</p>
+						<p style={styles.pText}>{content.slice(0, 400)}...</p>
+					</div>
+					<div></div>
+					<div style={styles.moreContent}>
+						<Link to={`/post/${_id}`}>(Read More)</Link>
 					</div>
 				</div>
 			</div>
-			{/* </div> */}
+
+			<div className='divider'></div>
 		</Fragment>
 	);
 };
-
 const styles = {
+	moreContent: {
+		paddingLeft: '1rem',
+		width: '100%',
+		display: 'flex',
+		alignContent: 'center',
+		alignItems: 'flex-start'
+	},
 	dateText: {
 		fontSize: '0.8rem'
 	},
